@@ -30,7 +30,7 @@ namespace MVC_Database.Models
         public int Credits { get; set; }
 
 
-        public Student AssignedTo { get; set; }
+        //public Student AssignedTo { get; set; }
 
     }
 }

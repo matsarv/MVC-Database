@@ -36,7 +36,7 @@ namespace MVC_Database.Models
 
         public Student FindStudent(int id)
         {
-            return _schoolDBContext.Students.SingleOrDefault(Student => Student.Id == id);
+            return _schoolDBContext.Students.SingleOrDefault(Student => Student.ID == id);
             //foreach (Student item in _schoolDBContext.Students)
             //{
             //    if (item.ID == id)
@@ -52,7 +52,7 @@ namespace MVC_Database.Models
         {
             bool wasUpdated = false;
 
-            Student orginal = _schoolDBContext.Students.SingleOrDefault(students => students.Id == student.Id);
+            Student orginal = _schoolDBContext.Students.SingleOrDefault(students => students.ID == student.ID);
             if (orginal != null)
             {
                 orginal.FirstName = student.FirstName;
@@ -70,7 +70,7 @@ namespace MVC_Database.Models
         {
             bool wasRemoved = false;
 
-            Student student = _schoolDBContext.Students.SingleOrDefault(students => students.Id == id);
+            Student student = _schoolDBContext.Students.SingleOrDefault(students => students.ID == id);
             if (student == null)
             {
                 return wasRemoved;

@@ -14,6 +14,8 @@ namespace MVC_Database.Models
         //    A, B, C, D, E
         //}
 
+        public int ID { get; set; }
+
         public int AssignmentID { get; set; }
 
         public int CourseID { get; set; }
@@ -22,7 +24,7 @@ namespace MVC_Database.Models
 
         [DisplayFormat(NullDisplayText = "No grade")]
         public string Grade { get; set; }
-        //public Grade? Grade { get; set; }
+        //public Grade? Grade{ get; set; }
 
         //public virtual Course Course { get; set; }
         //public virtual Student Student { get; set; }

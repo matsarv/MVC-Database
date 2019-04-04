@@ -13,7 +13,6 @@ namespace MVC_Database.Interface
         // CRUD
 
         // Create
-        //Student CreateStudent(string firstName, string lastName, string email);
         Student CreateStudent(Student student);
 
         // Read

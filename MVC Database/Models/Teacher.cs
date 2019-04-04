@@ -8,7 +8,7 @@ namespace MVC_Database.Models
 {
     public class Teacher
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -29,9 +29,13 @@ namespace MVC_Database.Models
         //[StringLength(50, MinimumLength = 1)]
         public string Email { get; set; }
 
+        //[DataType(DataType.Date)]
+        ////[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[Display(Name = "Hire Date")]
+        //public DateTime HireDate { get; set; }
+
         //[Display(Name = "Full Name")]
         //public string FullName => LastName + " " + FirstName;
-
 
     }
 }

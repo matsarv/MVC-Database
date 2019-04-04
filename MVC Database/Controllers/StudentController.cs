@@ -82,7 +82,7 @@ namespace MVC_Database.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit([Bind("Id,FirstName,LastName,Email")] Student student)
+        public IActionResult Edit([Bind("ID,FirstName,LastName,Email")] Student student)
         {
             if (ModelState.IsValid)
             {

@@ -10,10 +10,10 @@ namespace MVC_Database.Models
     public class Student
     {
         
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         [Required]
-        [Display(Name = "First Name"),StringLength(50, MinimumLength = 1)]
+        [Display(Name = "First Name"), StringLength(50, MinimumLength = 1)]
         public string FirstName { get; set; }
 
         [Required]
@@ -30,14 +30,16 @@ namespace MVC_Database.Models
         public string Email { get; set; }
 
         //[DataType(DataType.Date)]
-        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        ////[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         //[Display(Name = "Enrollment Date")]
         //public DateTime EnrollmentDate { get; set; }
 
         //[Display(Name = "Full Name")]
         //public string FullName => LastName + " " + FirstName;
 
-        //public virtual ICollection<Course> Courses { get; set; }
+        public ICollection<Course> Course { get; set; }
+
+
     }
 
 
