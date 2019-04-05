@@ -9,7 +9,8 @@ namespace MVC_Database.Models
 {
     public class Course
     {
-        public int Id { get; set; }
+        [Key]
+        public int ID { get; set; }
 
         [Required]
         [Display(Name = "Course ID")]

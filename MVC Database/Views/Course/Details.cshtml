@@ -1,0 +1,61 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<h4>Courses</h4>
+
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-1">
+            @Html.LabelFor(model => model.ID)
+        </dt>
+        <dd class="col-2">
+            @Html.LabelFor(model => model.CourseID)
+        </dd>
+        <dt class="col-2">
+            @Html.LabelFor(model => model.Title)
+        </dt>
+        <dd class="col-2">
+            @Html.LabelFor(model => model.Description)
+        </dd>
+        <dd class="col-2">
+            @Html.LabelFor(model => model.Description)
+        </dd>
+        <dd class="col-3">
+
+        </dd>
+    </dl>
+
+    <dl class="row">
+        <dd class="col-1">
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dd class="col-2">
+            @Html.DisplayFor(model => model.CourseID)
+        </dd>
+        <dd class="col-2">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dd class="col-2">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dd class="col-2">
+            @Html.DisplayFor(model => model.Credits)
+        </dd>
+        <dd class="col-3">
+
+        </dd>
+    </dl>
+
+</div>
+
+<td>
+    <a asp-controller="Course" asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Edit</a>
+    <a asp-controller="Course" asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Delete</a> |
+    <a asp-action="Index">Back to List</a>
+</td>

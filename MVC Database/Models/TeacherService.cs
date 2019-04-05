@@ -24,7 +24,6 @@ namespace MVC_Database.Models
 
         public Teacher CreateTeacher(Teacher teacher)
         {
-            //Student student = new Student() { FirstName = firstName, LastName= lastName, Email= email };
 
             _schoolDBContext.Teachers.Add(teacher);
             _schoolDBContext.SaveChanges();
@@ -35,22 +34,13 @@ namespace MVC_Database.Models
         public Teacher FindTeacher(int id)
         { 
             return _schoolDBContext.Teachers.SingleOrDefault(Teacher => Teacher.ID == id);
-            //foreach (Student item in _schoolDBContext.Students)
-            //{
-            //    if (item.ID == id)
-            //    {
-            //        return item;
-            //    }
-            //}
-
-            //return null;
         }
 
         public bool UpdateTeacher(Teacher teacher)
         {
             bool wasUpdated = false;
 
-            Teacher orginal = _schoolDBContext.Teachers.SingleOrDefault(teachers => teachers.ID == teacher.ID);
+            Teacher orginal = _schoolDBContext.Teachers.SingleOrDefault(item => item.ID == teacher.ID);
             if (orginal != null)
             {
                 orginal.FirstName = teacher.FirstName;

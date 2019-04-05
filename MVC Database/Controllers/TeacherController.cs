@@ -30,11 +30,14 @@ namespace MVC_Database.Controllers
             {
                 return NotFound();
             }
+
             Teacher teacher = _teacherService.FindTeacher((int)id);
+
             if (teacher == null)
             {
                 return NotFound();
             }
+
             return View(teacher);
         }
 
@@ -45,11 +48,14 @@ namespace MVC_Database.Controllers
             {
                 return NotFound();
             }
+
             Teacher teacher = _teacherService.FindTeacher((int)id);
+
             if (teacher == null)
             {
                 return NotFound();
             }
+
             return View(teacher);
         }
 
@@ -70,11 +76,14 @@ namespace MVC_Database.Controllers
             {
                 return NotFound();
             }
+
             Teacher teacher = _teacherService.FindTeacher((int)id);
+
             if (teacher == null)
             {
                 return NotFound();
             }
+
             return View(teacher);
         }
 
@@ -89,13 +98,13 @@ namespace MVC_Database.Controllers
                 return RedirectToAction("Index");
 
             }
+
             return View(teacher);
         }
 
         // GET
         public IActionResult Create()
         {
-
             return View();
         }
 
@@ -111,9 +120,8 @@ namespace MVC_Database.Controllers
                 return RedirectToAction("Index");
 
             }
-            //return View(student);
-            return View(_teacherService.AllTeachers());
 
+            return View(_teacherService.AllTeachers());
 
         }
     }

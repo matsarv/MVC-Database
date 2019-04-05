@@ -39,7 +39,7 @@ namespace MVC_Database.Migrations
 
             modelBuilder.Entity("MVC_Database.Models.Course", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -55,7 +55,7 @@ namespace MVC_Database.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Courses");
                 });

@@ -9,7 +9,7 @@ namespace MVC_Database.Models
 {
     public class Student
     {
-        
+        [Key]
         public int ID { get; set; }
 
         [Required]
@@ -37,7 +37,7 @@ namespace MVC_Database.Models
         //[Display(Name = "Full Name")]
         //public string FullName => LastName + " " + FirstName;
 
-        public ICollection<Course> Course { get; set; }
+        //public ICollection<Course> Course { get; set; }
 
 
     }

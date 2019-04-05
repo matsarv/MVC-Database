@@ -1,10 +1,4 @@
-﻿@*@{
-    ViewData["Title"] = "Teacher";
-}
-
-<h2>Teacher</h2>*@
-
-@model IEnumerable<Teacher>
+﻿@model IEnumerable<Teacher>
 
 @{
     ViewData["Title"] = "Treacher";
@@ -15,10 +9,9 @@
 <h4>Teacher</h4>
 
 <p>
-    <a class="btn btn-success" asp-controller="Teacher" asp-action="Create" method="get">Create New</a>
+    <a class="btn btn-sm btn-success" asp-controller="Teacher" asp-action="Create" method="get">Create New</a>
 </p>
 
-@*Fix new CSS - class="table"*@
 <table>
 
     <thead>
@@ -56,12 +49,9 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.ID */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.ID */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.ID */ })*@
-                    <a class="btn btn-success" asp-controller="Teacher" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
-                    <a class="btn btn-success" asp-controller="Teacher" asp-action="Details" asp-route-id="@item.ID">Details</a>
-                    <a class="btn btn-success" asp-controller="Teacher" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    <a asp-controller="Teacher" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-success">Edit</a>
+                    <a asp-controller="Teacher" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-success">Details</a>
+                    <a asp-controller="Teacher" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-success">Delete</a>
 
                 </td>
             </tr>

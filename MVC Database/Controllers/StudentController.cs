@@ -31,11 +31,14 @@ namespace MVC_Database.Controllers
             {
                 return NotFound();
             }
+
             Student student = _studentService.FindStudent((int)id);
+
             if (student == null)
             {
                 return NotFound();
             }
+
             return View(student);
         }
 
@@ -46,11 +49,14 @@ namespace MVC_Database.Controllers
             {
                 return NotFound();
             }
+
             Student student = _studentService.FindStudent((int)id);
+
             if (student == null)
             {
                 return NotFound();
             }
+
             return View(student);
         }
 
@@ -71,11 +77,14 @@ namespace MVC_Database.Controllers
             {
                 return NotFound();
             }
+
             Student student = _studentService.FindStudent((int)id);
+
             if (student == null)
             {
                 return NotFound();
             }
+
             return View(student);
         }
 
@@ -87,16 +96,16 @@ namespace MVC_Database.Controllers
             if (ModelState.IsValid)
             {
                 _studentService.UpdateStudent(student);
-                return RedirectToAction("Index");
 
+                return RedirectToAction("Index");
             }
+
             return View(student);
         }
 
         // GET
         public IActionResult Create()
         {
-
             return View();
         }
 
@@ -109,12 +118,12 @@ namespace MVC_Database.Controllers
             if (ModelState.IsValid)
             {
                 _studentService.CreateStudent(student);
-                return RedirectToAction("Index");
 
+                return RedirectToAction("Index");
             }
+
             //return View(student);
             return View(_studentService.AllStudents());
-
 
         }
     }

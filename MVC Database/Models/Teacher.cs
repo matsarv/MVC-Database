@@ -8,6 +8,7 @@ namespace MVC_Database.Models
 {
     public class Teacher
     {
+        [Key]
         public int ID { get; set; }
 
         [Required]

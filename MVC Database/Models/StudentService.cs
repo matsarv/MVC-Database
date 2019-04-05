@@ -52,7 +52,7 @@ namespace MVC_Database.Models
         {
             bool wasUpdated = false;
 
-            Student orginal = _schoolDBContext.Students.SingleOrDefault(students => students.ID == student.ID);
+            Student orginal = _schoolDBContext.Students.SingleOrDefault(item => item.ID == student.ID);
             if (orginal != null)
             {
                 orginal.FirstName = student.FirstName;

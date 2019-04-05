@@ -27,7 +27,7 @@ namespace MVC_Database.Migrations
                 name: "Courses",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
+                    ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CourseID = table.Column<int>(nullable: false),
                     Title = table.Column<string>(maxLength: 50, nullable: false),
@@ -36,7 +36,7 @@ namespace MVC_Database.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Courses", x => x.Id);
+                    table.PrimaryKey("PK_Courses", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(

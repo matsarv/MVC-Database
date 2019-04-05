@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Database.Migrations
 {
     [DbContext(typeof(SchoolDBContext))]
-    [Migration("20190404135351_init_school")]
+    [Migration("20190405130836_init_school")]
     partial class init_school
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,7 +41,7 @@ namespace MVC_Database.Migrations
 
             modelBuilder.Entity("MVC_Database.Models.Course", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -57,7 +57,7 @@ namespace MVC_Database.Migrations
                         .IsRequired()
                         .HasMaxLength(50);
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Courses");
                 });
