@@ -21,6 +21,34 @@ namespace MVC_Database.Models
         public List<Student> AllStudents()
         {
             return _schoolDBContext.Students.ToList();
+
+            //var stud1 = _schoolDBContext.Students
+            //   .Include("StudentCourses")
+            //   .Where(s => s.FirstName == "Mats1")
+            //   .FirstOrDefault<Student>();
+
+            //return stud1.ToList();
+
+            //     var nestedQuery = from s in _schoolDBContext.Students
+            //                       from c in s.StudentCourses
+            //                       where s.ID == 1
+            //                       select new { s.FirstName, c };
+
+            //     var nestedQuery = nestedQuery.ToList();         
+
+
+            ////     var student = _schoolDBContext.Students
+            ////                     .Where(s => s.FirstName == "Mats1").ToList();
+            ////     //.FirstOrDefault<Student>();
+
+            ////     _schoolDBContext.Entry(student)
+            ////.Collection(s => s.StudentCourses)
+            ////.Query()
+            ////    .Where(sc => sc.CourseID == "1000")
+            ////    .FirstOrDefault();
+
+            //     return nestedQuery;
+
         }
 
 
@@ -37,6 +65,7 @@ namespace MVC_Database.Models
         public Student FindStudent(int id)
         {
             return _schoolDBContext.Students.SingleOrDefault(Student => Student.ID == id);
+
             //foreach (Student item in _schoolDBContext.Students)
             //{
             //    if (item.ID == id)

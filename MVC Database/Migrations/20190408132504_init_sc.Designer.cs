@@ -3,14 +3,16 @@ using MVC_Database.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MVC_Database.Migrations
 {
     [DbContext(typeof(SchoolDBContext))]
-    partial class SchoolDBContextModelSnapshot : ModelSnapshot
+    [Migration("20190408132504_init_sc")]
+    partial class init_sc
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,7 +93,11 @@ namespace MVC_Database.Migrations
 
                     b.Property<int>("CourseId");
 
+                    b.Property<int>("ID");
+
                     b.HasKey("StudentId", "CourseId");
+
+                    b.HasAlternateKey("ID");
 
                     b.ToTable("StudentCourses");
                 });

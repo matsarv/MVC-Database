@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Course>
 
+
 @{
     ViewData["Title"] = "Course";
 }
@@ -54,6 +55,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Credits)
             </td>
+
             <td>
                 <a asp-controller="Course" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-success">Edit</a>
                 <a asp-controller="Course" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-success">Details</a>

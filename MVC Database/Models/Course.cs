@@ -33,5 +33,11 @@ namespace MVC_Database.Models
 
         //public Student AssignedTo { get; set; }
 
+        //public virtual ICollection<Assignment> Assignments { get; set; }
+        //public virtual ICollection<Teacher> Teachers { get; set; }
+
+        public IList<StudentCourse> StudentCourses { get; set; }
+
+
     }
 }

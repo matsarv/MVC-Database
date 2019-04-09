@@ -1,4 +1,5 @@
-﻿using MVC_Database.Database;
+﻿using Microsoft.EntityFrameworkCore;
+using MVC_Database.Database;
 using MVC_Database.Interface;
 using System;
 using System.Collections.Generic;
@@ -18,8 +19,40 @@ namespace MVC_Database.Models
 
         public List<Course> AllCourses()
         {
-            return _schoolDBContext.Courses.ToList();
+            //return _schoolDBContext.Courses.ToList();
+
+            // Test below
+
+            //return _schoolDBContext.Courses
+            //        .Where(b => b.Description.Contains("Age"))
+            //        .ToList();
+
+            //return _schoolDBContext.Courses
+            //        .FromSql("SELECT * FROM dbo.Courses")
+            //        .ToList();
+
+            var test = _schoolDBContext.Courses
+                        //.Where(s => s.CourseID == id)
+                        .Include(s => s.StudentCourses)
+                            .ThenInclude(g => g.Student)
+                            .ToList();
+            return test;
+
         }
+
+        //public List<Course> SelectCourse(int id)
+        //{
+
+        //    //https://www.entityframeworktutorial.net/efcore/querying-in-ef-core.aspx
+        //    //https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/
+
+        //    var test = _schoolDBContext.Courses
+        //                //.Where(s => s.CourseID == id)
+        //                .Include(s => s.StudentCourses)
+        //                    .ThenInclude(g => g.Student)
+        //                    .ToList();
+        //    return test;
+        //}
 
 
         public Course CreateCourse(Course course)

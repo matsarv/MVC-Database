@@ -8,6 +8,6 @@ namespace MVC_Database.Models
 {
     public class AssignmentService : IAssignmentService
     {
-
+        //public int StudentCount { get; set; }
     }
 }

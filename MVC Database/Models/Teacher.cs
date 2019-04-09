@@ -38,5 +38,7 @@ namespace MVC_Database.Models
         //[Display(Name = "Full Name")]
         //public string FullName => LastName + " " + FirstName;
 
+        //public virtual ICollection<Course> Courses { get; set; }
+
     }
 }

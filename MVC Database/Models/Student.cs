@@ -34,10 +34,13 @@ namespace MVC_Database.Models
         //[Display(Name = "Enrollment Date")]
         //public DateTime EnrollmentDate { get; set; }
 
-        //[Display(Name = "Full Name")]
-        //public string FullName => LastName + " " + FirstName;
+        [Display(Name = "Name")]
+        public string FullName => LastName + " " + FirstName;
 
         //public ICollection<Course> Course { get; set; }
+        //public virtual ICollection<Assignment> Assignments { get; set; }
+
+        public IList<StudentCourse> StudentCourses { get; set; }
 
 
     }

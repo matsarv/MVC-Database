@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MVC_Database.Database;
 using MVC_Database.Interface;
 using MVC_Database.Models;
 
@@ -17,6 +18,7 @@ namespace MVC_Database.Controllers
         {
             _studentService = studentService;
         }
+
 
         // GET
         public IActionResult Index()
