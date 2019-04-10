@@ -1,58 +1,127 @@
-﻿@model Course
+﻿@model List<StudentCourse>
+@*@model IEnumerable<StudentCourse>*@
+
 @{
     ViewData["Title"] = "Select";
 }
 
 <h2>Select</h2>
-<h4>Courses</h4>
+
+<br />
+<h4>Course</h4>
+
+@foreach (var item in Model)
+{
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(modelItem => item.Course.ID): @Html.DisplayFor(modelItem => item.Course.ID)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(modelItem => item.Course.Title): @Html.DisplayFor(modelItem => item.Course.Title)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(modelItem => item.Course.Description): @Html.DisplayFor(modelItem => item.Course.Description)
+                </td>
+            </tr>
+        </tbody>
+    </table>    
+    //break;
+}
+<br />
+<h4>Teacher</h4>
+
+@foreach (var item in Model)
+{
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(modelItem => item.Course.Teacher.FullName): @Html.DisplayFor(modelItem => item.Course.Teacher.FullName)
+                </td>
+            </tr>
+        </tbody>
+    </table>    
+    //break;
+}
+<br />
+<h4>Students</h4>
+
+@foreach (var item in Model)
+{
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(modelItem => item.Student.FullName): @Html.DisplayFor(modelItem => item.Student.FullName)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+
+@*<dd class="col-2">
+        @Html.DisplayFor(model => model.Title)
+    </dd>*@
 
 
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-1">
-            @Html.LabelFor(model => model.ID)
-        </dt>
-        <dd class="col-2">
-            @Html.LabelFor(model => model.CourseID)
-        </dd>
-        <dt class="col-2">
-            @Html.LabelFor(model => model.Title)
-        </dt>
-        <dd class="col-2">
-            @Html.LabelFor(model => model.Description)
-        </dd>
-        <dd class="col-2">
-            @Html.LabelFor(model => model.Description)
-        </dd>
-        <dd class="col-3">
 
-        </dd>
-    </dl>
+@*<div>
+        <hr />
+        <dl class="row">
+            <dt class="col-1">
+                @Html.LabelFor(model => model.ID)
+            </dt>
+            <dd class="col-2">
+                @Html.LabelFor(model => model.CourseID)
+            </dd>
+            <dt class="col-2">
+                @Html.LabelFor(model => model.Title)
+            </dt>
+            <dd class="col-2">
+                @Html.LabelFor(model => model.Description)
+            </dd>
+            <dd class="col-2">
+                @Html.LabelFor(model => model.Description)
+            </dd>
+            <dd class="col-3">
 
-    <dl class="row">
-        <dd class="col-1">
-            @Html.DisplayFor(model => model.ID)
-        </dd>
-        <dd class="col-2">
-            @Html.DisplayFor(model => model.CourseID)
-        </dd>
-        <dd class="col-2">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dd class="col-2">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dd class="col-2">
-            @Html.DisplayFor(model => model.Credits)
-        </dd>
-        <dd class="col-3">
+            </dd>
+        </dl>
 
-        </dd>
-    </dl>
+        <dl class="row">
+            <dd class="col-1">
+                @Html.DisplayFor(model => model.ID)
+            </dd>
+            <dd class="col-2">
+                @Html.DisplayFor(model => model.CourseID)
+            </dd>
+            <dd class="col-2">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dd class="col-2">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dd class="col-2">
+                @Html.DisplayFor(model => model.Credits)
+            </dd>
+            <dd class="col-3">
 
-</div>
+            </dd>
+        </dl>
 
-<td>
-    <a asp-action="Index">Back to List</a>
-</td>
+    </div>*@
+
+<br />
+<table>
+    <tr>
+        <td>
+            <a asp-action="Index">Back to List</a>
+        </td>
+    </tr>
+</table>

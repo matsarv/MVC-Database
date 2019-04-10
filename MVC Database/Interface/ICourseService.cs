@@ -18,6 +18,8 @@ namespace MVC_Database.Interface
         List<Course> AllCourses();
         //one
         Course FindCourse(int id);
+        //one
+        List<StudentCourse> SelectCourse(int id);
 
         // Update
         bool UpdateCourse(Course course);

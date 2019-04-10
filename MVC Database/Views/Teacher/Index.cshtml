@@ -20,11 +20,14 @@
                 @Html.DisplayNameFor(model => model.ID)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.LastName)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
@@ -35,26 +38,29 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ID)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    <a asp-controller="Teacher" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-success">Edit</a>
-                    <a asp-controller="Teacher" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-success">Details</a>
-                    <a asp-controller="Teacher" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-success">Delete</a>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-controller="Teacher" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-success">Edit</a>
+                <a asp-controller="Teacher" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-success">Details</a>
+                <a asp-controller="Teacher" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-success">Delete</a>
 
-                </td>
-            </tr>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

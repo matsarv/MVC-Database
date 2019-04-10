@@ -2,7 +2,7 @@
 
 namespace MVC_Database.Migrations
 {
-    public partial class init_sc2 : Migration
+    public partial class init1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -1,4 +1,5 @@
 ﻿@model Course
+
 @{
     ViewData["Title"] = "Details";
 }
@@ -15,7 +16,7 @@
             @Html.LabelFor(model => model.ID)
         </dt>
         <dd class="col-2">
-            @Html.LabelFor(model => model.CourseID)
+            @Html.LabelFor(model => model.CourseNumber)
         </dd>
         <dt class="col-2">
             @Html.LabelFor(model => model.Title)
@@ -36,7 +37,7 @@
             @Html.DisplayFor(model => model.ID)
         </dd>
         <dd class="col-2">
-            @Html.DisplayFor(model => model.CourseID)
+            @Html.DisplayFor(model => model.CourseNumber)
         </dd>
         <dd class="col-2">
             @Html.DisplayFor(model => model.Title)

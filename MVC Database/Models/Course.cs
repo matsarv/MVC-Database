@@ -13,8 +13,8 @@ namespace MVC_Database.Models
         public int ID { get; set; }
 
         [Required]
-        [Display(Name = "Course ID")]
-        public int CourseID { get; set; }
+        [Display(Name = "Course")]
+        public int CourseNumber { get; set; }
 
         [Required]
         [StringLength(50, MinimumLength = 1)]
@@ -36,8 +36,9 @@ namespace MVC_Database.Models
         //public virtual ICollection<Assignment> Assignments { get; set; }
         //public virtual ICollection<Teacher> Teachers { get; set; }
 
-        public IList<StudentCourse> StudentCourses { get; set; }
+        public List<StudentCourse> StudentCourses { get; set; }
 
+        public Teacher Teacher {get; set;}
 
     }
 }

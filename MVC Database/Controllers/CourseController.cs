@@ -24,6 +24,24 @@ namespace MVC_Database.Controllers
         }
 
         // GET
+        public IActionResult Select(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            List<StudentCourse> course = _courseService.SelectCourse((int)id);
+
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            return View(course);
+        }
+
+        // GET
         public IActionResult Details(int? id)
         {
             if (id == null)
@@ -89,7 +107,7 @@ namespace MVC_Database.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit([Bind("ID,CourseID,Title,Description,Credits")] Course course)
+        public IActionResult Edit([Bind("ID,CourseNumber,Title,Description,Credits")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -109,7 +127,7 @@ namespace MVC_Database.Controllers
         [HttpPost]
         //[HttpPost, ActionName("Create")]
         //public IActionResult Create(string firstName, string lastName, string email)
-        public IActionResult Create([Bind("CourseID,Title,Description,Credits")] Course course)
+        public IActionResult Create([Bind("CourseNumber,Title,Description,Credits")] Course course)
         {
             if (ModelState.IsValid)
             {
