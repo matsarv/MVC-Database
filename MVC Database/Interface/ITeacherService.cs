@@ -10,19 +10,19 @@ namespace MVC_Database.Interface
     {
         // CRUD
 
-        // Create
+        // CRETAE
         Teacher CreateTeacher(Teacher teacher);
 
-        // Read
+        // READ
         //all
         List<Teacher> AllTeachers();
         //one
         Teacher FindTeacher(int id);
 
-        // Update
+        // UPDATE
         bool UpdateTeacher(Teacher teacher);
 
-        // Delete
+        // DELETE
         bool DeleteTeacher(int id);
 
     }

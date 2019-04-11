@@ -30,10 +30,8 @@ namespace MVC_Database.Database
             modelBuilder.Entity<StudentCourse>()
                .HasOne<Course>(sc => sc.Course)
                .WithMany(s => s.StudentCourses)
-               .HasForeignKey(sc => sc.StudentId);
+               .HasForeignKey(sc => sc.CourseId);
         }
-
-
 
     }
 

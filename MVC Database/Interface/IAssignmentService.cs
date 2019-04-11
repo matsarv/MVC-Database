@@ -9,13 +9,13 @@ namespace MVC_Database.Interface
     {
         // CRUD
 
-        // Create
+        // CREATE
 
-        // Read
+        // READ
 
-        // Update
+        // UPDATE
 
-        // Delete
+        // DELETE
 
     }
 }

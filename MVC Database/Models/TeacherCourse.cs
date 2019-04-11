@@ -10,6 +10,7 @@ namespace MVC_Database.Models
     {
         [Key]
         public int ID { get; set; }
+
         public string TeacherID { get; set; }
         public string CourseID { get; set; }
     }

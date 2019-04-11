@@ -16,12 +16,11 @@ namespace MVC_Database.Models
             _schoolDBContext = schoolDBContext;
         }
 
-        public List<Teacher> AllTeachers()
-        {
-            return _schoolDBContext.Teachers.ToList();
-        }
 
 
+        // CRUD
+
+        // CREATE
         public Teacher CreateTeacher(Teacher teacher)
         {
 
@@ -31,11 +30,19 @@ namespace MVC_Database.Models
             return teacher;
         }
 
+        //READ
+        //all
+        public List<Teacher> AllTeachers()
+        {
+            return _schoolDBContext.Teachers.ToList();
+        }
+        //one
         public Teacher FindTeacher(int id)
         { 
             return _schoolDBContext.Teachers.SingleOrDefault(Teacher => Teacher.ID == id);
         }
 
+        // UPDATE
         public bool UpdateTeacher(Teacher teacher)
         {
             bool wasUpdated = false;
@@ -54,6 +61,7 @@ namespace MVC_Database.Models
             return wasUpdated;
         }
 
+        // DELETE
         public bool DeleteTeacher(int id)
         {
             bool wasRemoved = false;

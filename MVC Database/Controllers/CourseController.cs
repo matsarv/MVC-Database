@@ -31,7 +31,8 @@ namespace MVC_Database.Controllers
                 return NotFound();
             }
 
-            List<StudentCourse> course = _courseService.SelectCourse((int)id);
+            //List<StudentCourse> course = _courseService.SelectCourse((int)id);
+            Course course = _courseService.SelectCourse((int)id);
 
             if (course == null)
             {

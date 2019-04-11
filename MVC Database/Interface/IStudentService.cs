@@ -9,22 +9,21 @@ namespace MVC_Database.Interface
 
     public interface IStudentService
     {
-
         // CRUD
 
-        // Create
+        // CREATE
         Student CreateStudent(Student student);
 
-        // Read
+        // READ
         //all
         List<Student> AllStudents();
         //one
         Student FindStudent(int id);
 
-        // Update
+        // UPDATE
         bool UpdateStudent(Student student);
 
-        // Delete
+        // DELETE
         bool DeleteStudent(int id);
 
     }

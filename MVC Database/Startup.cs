@@ -48,8 +48,6 @@ namespace MVC_Database
                 app.UseDeveloperExceptionPage();
             }
 
-
-
             // Used for CSS and JS a.s.o
             app.UseStaticFiles();
 
@@ -61,9 +59,6 @@ namespace MVC_Database
                 routes.MapRoute(name: "default",
                 template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-
-
 
         }
     }

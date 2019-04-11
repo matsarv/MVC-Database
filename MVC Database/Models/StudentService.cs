@@ -18,40 +18,10 @@ namespace MVC_Database.Models
             _schoolDBContext = schoolDBContext;
         }
 
-        public List<Student> AllStudents()
-        {
-            return _schoolDBContext.Students.ToList();
-
-            //var stud1 = _schoolDBContext.Students
-            //   .Include("StudentCourses")
-            //   .Where(s => s.FirstName == "Mats1")
-            //   .FirstOrDefault<Student>();
-
-            //return stud1.ToList();
-
-            //     var nestedQuery = from s in _schoolDBContext.Students
-            //                       from c in s.StudentCourses
-            //                       where s.ID == 1
-            //                       select new { s.FirstName, c };
-
-            //     var nestedQuery = nestedQuery.ToList();         
 
 
-            ////     var student = _schoolDBContext.Students
-            ////                     .Where(s => s.FirstName == "Mats1").ToList();
-            ////     //.FirstOrDefault<Student>();
-
-            ////     _schoolDBContext.Entry(student)
-            ////.Collection(s => s.StudentCourses)
-            ////.Query()
-            ////    .Where(sc => sc.CourseID == "1000")
-            ////    .FirstOrDefault();
-
-            //     return nestedQuery;
-
-        }
-
-
+        // CRUD
+        // CREATE
         public Student CreateStudent(Student student)
         {
             //Student student = new Student() { FirstName = firstName, LastName= lastName, Email= email };
@@ -62,21 +32,19 @@ namespace MVC_Database.Models
             return student;
         }
 
+        //READ
+        // all
+        public List<Student> AllStudents()
+        {
+            return _schoolDBContext.Students.ToList();
+        }
+        // one
         public Student FindStudent(int id)
         {
             return _schoolDBContext.Students.SingleOrDefault(Student => Student.ID == id);
-
-            //foreach (Student item in _schoolDBContext.Students)
-            //{
-            //    if (item.ID == id)
-            //    {
-            //        return item;
-            //    }
-            //}
-
-            //return null;
         }
 
+        // UPDATE
         public bool UpdateStudent(Student student)
         {
             bool wasUpdated = false;
@@ -95,6 +63,7 @@ namespace MVC_Database.Models
             return wasUpdated;
         }
 
+        // DELETE
         public bool DeleteStudent(int id)
         {
             bool wasRemoved = false;

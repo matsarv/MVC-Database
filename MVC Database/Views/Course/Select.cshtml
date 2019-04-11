@@ -1,5 +1,4 @@
-﻿@model List<StudentCourse>
-@*@model IEnumerable<StudentCourse>*@
+﻿@model Course
 
 @{
     ViewData["Title"] = "Select";
@@ -8,51 +7,59 @@
 <h2>Select</h2>
 
 <br />
+
 <h4>Course</h4>
 
-@foreach (var item in Model)
-{
-    <table>
-        <tbody>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(modelItem => item.Course.ID): @Html.DisplayFor(modelItem => item.Course.ID)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(modelItem => item.Course.Title): @Html.DisplayFor(modelItem => item.Course.Title)
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.DisplayNameFor(modelItem => item.Course.Description): @Html.DisplayFor(modelItem => item.Course.Description)
-                </td>
-            </tr>
-        </tbody>
-    </table>    
-    //break;
-}
+<table>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ID): @Html.DisplayFor(model => model.ID)
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 <br />
+
 <h4>Teacher</h4>
 
-@foreach (var item in Model)
+@if (@Model.Teacher != null)
 {
+
     <table>
         <tbody>
             <tr>
                 <td>
-                    @Html.DisplayNameFor(modelItem => item.Course.Teacher.FullName): @Html.DisplayFor(modelItem => item.Course.Teacher.FullName)
+                    @Html.DisplayNameFor(model => model.Teacher.FullName): @Html.DisplayFor(model => model.Teacher.FullName)
                 </td>
             </tr>
         </tbody>
-    </table>    
-    //break;
+    </table>
 }
+else
+{
+    <p><a asp-controller="Teacher" asp-action="Index" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Add Teacher (Create new View)</a></p>
+}
+
 <br />
+
 <h4>Students</h4>
 
-@foreach (var item in Model)
+@*@if (@Model.StudentCourses.Count != 0)
+    {*@
+@foreach (var item in Model.StudentCourses)
 {
     <table>
         <tbody>
@@ -64,60 +71,14 @@
         </tbody>
     </table>
 }
-
-@*<dd class="col-2">
-        @Html.DisplayFor(model => model.Title)
-    </dd>*@
-
-
-
-@*<div>
-        <hr />
-        <dl class="row">
-            <dt class="col-1">
-                @Html.LabelFor(model => model.ID)
-            </dt>
-            <dd class="col-2">
-                @Html.LabelFor(model => model.CourseID)
-            </dd>
-            <dt class="col-2">
-                @Html.LabelFor(model => model.Title)
-            </dt>
-            <dd class="col-2">
-                @Html.LabelFor(model => model.Description)
-            </dd>
-            <dd class="col-2">
-                @Html.LabelFor(model => model.Description)
-            </dd>
-            <dd class="col-3">
-
-            </dd>
-        </dl>
-
-        <dl class="row">
-            <dd class="col-1">
-                @Html.DisplayFor(model => model.ID)
-            </dd>
-            <dd class="col-2">
-                @Html.DisplayFor(model => model.CourseID)
-            </dd>
-            <dd class="col-2">
-                @Html.DisplayFor(model => model.Title)
-            </dd>
-            <dd class="col-2">
-                @Html.DisplayFor(model => model.Description)
-            </dd>
-            <dd class="col-2">
-                @Html.DisplayFor(model => model.Credits)
-            </dd>
-            <dd class="col-3">
-
-            </dd>
-        </dl>
-
-    </div>*@
+@*}
+    else
+    {*@
+<p><a asp-controller="Student" asp-action="Index" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Add Student (Create new View)</a></p>
+@*}*@
 
 <br />
+
 <table>
     <tr>
         <td>
