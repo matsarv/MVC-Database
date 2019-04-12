@@ -13,20 +13,24 @@ namespace MVC_Database.Interface
         // CREATE
         Course CreateCourse(Course course);
 
+
         // READ
         //all
         List<Course> AllCourses();
         //one
         Course FindCourse(int id);
-        //one with all
-        //List<StudentCourse> SelectCourse(int id);
+        //one with course, teacher, all student
         Course SelectCourse(int id);
+        //one with course, all teacher
+        Course SelectCourseTeacher(int id);
 
         // UPDATE
         bool UpdateCourse(Course course);
+        bool AddTeacherCourse(int id);
 
         // DELETE
         bool DeleteCourse(int id);
-
+        bool DeleteTeacherCourse(int id);
+        bool DeleteStudentCourse(int StudentId, int CourseId);
     }
 }

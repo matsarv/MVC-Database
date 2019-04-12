@@ -15,6 +15,8 @@ namespace MVC_Database.Models
             _schoolDBContext = schoolDBContext;
         }
 
+        // CRUD
+
         // CREATE
         public Course CreateCourse(Course course)
         {
@@ -24,7 +26,7 @@ namespace MVC_Database.Models
             return course;
         }
 
-        //READ
+        // READ
         // one
         public Course FindCourse(int id)
         {
@@ -35,14 +37,25 @@ namespace MVC_Database.Models
         {
             return _schoolDBContext.Courses.ToList();
         }
-        // one with all
+        // one with course, teacher, all students 
         public Course SelectCourse(int id)
         {
             var result = _schoolDBContext.Courses
-            .Include(sc => sc.StudentCourses)
-                .ThenInclude(s => s.Student)
-            .Include(t => t.Teacher)
-            .SingleOrDefault(x => x.ID == id);
+                        .Include(sc => sc.StudentCourses)
+                            .ThenInclude(s => s.Student)
+                        .Include(t => t.Teacher)
+                        .SingleOrDefault(x => x.ID == id);
+
+            return result;
+        }
+        // one with course, all teachers
+        public Course SelectCourseTeacher(int id)
+        {
+            var result = _schoolDBContext.Courses
+                        //.Include(sc => sc.StudentCourses)
+                        //    .ThenInclude(s => s.Student)
+                        .Include(t => t.Teacher)
+                        .SingleOrDefault(x => x.ID == id);
 
             return result;
         }
@@ -67,6 +80,32 @@ namespace MVC_Database.Models
             return wasUpdated;
         }
 
+        public bool AddTeacherCourse(int id)
+        {
+            bool wasUpdated = false;
+
+            //Course orginal = _schoolDBContext.Courses.SingleOrDefault(item => item.ID == course.ID);
+
+            var orginal = _schoolDBContext.Courses
+                        //.Include(sc => sc.StudentCourses)
+                        //    .ThenInclude(s => s.Student)
+                        .Include(t => t.Teacher);
+                        //.Where(s => s.ID == 1)
+                        //.ToList();
+
+
+            if (orginal != null)
+            {
+                //orginal.Course.Teacher = course.Teacher;
+
+                _schoolDBContext.SaveChanges();
+                wasUpdated = true;
+            }
+
+
+            return wasUpdated;
+        }
+
         // DELETE
         public bool DeleteCourse(int id)
         {
@@ -81,6 +120,39 @@ namespace MVC_Database.Models
             _schoolDBContext.Courses.Remove(course);
             _schoolDBContext.SaveChanges();
             wasRemoved = true;
+
+            return wasRemoved;
+        }
+
+        public bool DeleteTeacherCourse(int id)
+        {
+            bool wasRemoved = false;
+
+            var course = _schoolDBContext.Courses
+                        .Include(t => t.Teacher)
+                        .SingleOrDefault(x => x.ID == id);
+
+            if (course == null)
+            {
+                return wasRemoved;
+            }
+
+            if (course.Teacher != null)
+            {
+                course.Teacher = null;
+                _schoolDBContext.SaveChanges();
+                wasRemoved = true;
+            }
+
+            return wasRemoved;
+        }
+
+        public bool DeleteStudentCourse(int StudentId, int CourseId)
+        {
+            bool wasRemoved = false;
+
+
+
 
             return wasRemoved;
         }

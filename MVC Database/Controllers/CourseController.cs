@@ -11,10 +11,12 @@ namespace MVC_Database.Controllers
     public class CourseController : Controller
     {
         ICourseService _courseService;
+        ITeacherService _teacherService;
 
-        public CourseController(ICourseService courseService)
+        public CourseController(ICourseService courseService, ITeacherService teacherService)
         {
             _courseService = courseService;
+            _teacherService = teacherService;
         }
 
         // GET
@@ -86,6 +88,75 @@ namespace MVC_Database.Controllers
             _courseService.DeleteCourse(id);
 
             return RedirectToAction("Index");
+        }
+
+        // GET
+        public IActionResult AddTeacherCourse(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Course course = _courseService.SelectCourseTeacher((int)id);
+
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            List<Teacher> teachers = _teacherService.AllTeachers();
+
+            if (teachers == null)
+            {
+                return NotFound();
+            }
+
+            CourseTeachersViewModel vm = new CourseTeachersViewModel();
+
+            vm.course = course;
+            vm.teachers = teachers;
+
+            return View(vm);
+        }
+
+        // POST: 
+        [HttpPost, ActionName("AddTeacherCourse")]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddTeacherCourseConfirmed(int id)
+        {
+            _courseService.AddTeacherCourse(id);
+
+            return RedirectToAction("Select", "Course", new { id });
+        }
+
+
+        // GET
+        public IActionResult DeleteTeacherCourse(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Course course = _courseService.SelectCourse((int)id);
+
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            return View(course);
+        }
+
+        // POST: 
+        [HttpPost, ActionName("DeleteTeacherCourse")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteTeacherCourseConfirmed(int id)
+        {
+            _courseService.DeleteTeacherCourse(id);
+
+            return RedirectToAction("Select", "Course", new { id });
         }
 
         // GET

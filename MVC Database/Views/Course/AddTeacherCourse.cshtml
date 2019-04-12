@@ -1,0 +1,25 @@
+﻿@model CourseTeachersViewModel
+@{
+    ViewData["Title"] = "Add Teacher To Course";
+}
+
+<h2>Add Teacher To Course</h2>
+
+
+
+
+@*@foreach (var item in Model.Teacher)
+{
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(modelItem => item.Teacher.FullName): @Html.DisplayFor(modelItem => item.Teacher.FullName)
+                </td>
+                <td>
+                    <a asp-controller="Course" asp-action="AddTeacherCourse" asp-route-StudentId="@item.Teacher.ID" asp-route-CourseId="@Model.ID" class="btn btn-sm btn-success">Remove</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}*@
