@@ -1,0 +1,31 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Remove Student from Course";
+}
+
+<h2>Remove Student form Course</h2>
+
+<h4>Student</h4>
+
+<br />
+<p>Are you sure you want to remove this?</p>
+
+<div>
+
+    @*Use to below in every View*@
+    @*<table>
+            <tr>
+                <td><label asp-for="students."></label></td>
+            </tr>
+            <tr>
+                <td>@Model.students.</td>
+            </tr>
+        </table>*@
+
+    <form asp-action="DeleteStudentCourse">
+        <br>
+        <input type="submit" value="Remove" class="btn btn-sm btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+
+</div>

@@ -6,20 +6,22 @@
 <h2>Add Teacher To Course</h2>
 
 
+<h4>@Model.course.Title</h4>
 
 
-@*@foreach (var item in Model.Teacher)
+@foreach (var item in Model.teachers)
 {
     <table>
         <tbody>
             <tr>
                 <td>
-                    @Html.DisplayNameFor(modelItem => item.Teacher.FullName): @Html.DisplayFor(modelItem => item.Teacher.FullName)
+                    @*@Html.DisplayNameFor(modelItem => item.FullName):*@ @Html.DisplayFor(modelItem => item.FullName)
+
                 </td>
                 <td>
-                    <a asp-controller="Course" asp-action="AddTeacherCourse" asp-route-StudentId="@item.Teacher.ID" asp-route-CourseId="@Model.ID" class="btn btn-sm btn-success">Remove</a>
+                    <a asp-controller="Course" asp-action="AddTeacherCourseSave" asp-route-TeacherId="@item.ID" asp-route-id="@Model.course.ID" class="btn btn-sm btn-success">Add</a>
                 </td>
             </tr>
         </tbody>
     </table>
-}*@
+}

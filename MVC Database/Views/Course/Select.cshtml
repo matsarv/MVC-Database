@@ -53,7 +53,7 @@
 else
 {
     <br />
-    <p><a asp-controller="Course" asp-action="AddTeacherCourse" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Add</a></p>
+    <p><a asp-controller="Course" asp-action="AddTeacherCourse" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Add Teacher</a></p>
 }
 
 <br />
@@ -71,7 +71,7 @@ else
                     @Html.DisplayNameFor(modelItem => item.Student.FullName): @Html.DisplayFor(modelItem => item.Student.FullName)
                 </td> 
                 <td>
-                    <a asp-controller="Course" asp-action="DeleteStudentCourse" asp-route-StudentId="@item.Student.ID" asp-route-CourseId="@Model.ID" class="btn btn-sm btn-success">Remove</a>
+                    <a asp-controller="Course" asp-action="DeleteStudentCourse" asp-route-StudentId="@item.Student.ID" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Remove</a>
                 </td>
             </tr>
         </tbody>
@@ -81,7 +81,7 @@ else
     else
     {*@
 <br />
-<p><a asp-controller="Course" asp-action="AddStudentCourse" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Add</a></p>
+<p><a asp-controller="Course" asp-action="AddStudentCourse" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Add Student</a></p>
 @*}*@
 
 <br />

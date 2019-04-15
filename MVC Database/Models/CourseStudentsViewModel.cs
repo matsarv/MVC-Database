@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace MVC_Database.Models
 {
-    public class CourseTeachersViewModel
+    public class CourseStudentsViewModel
     {
         public Course course { get; set; }
-        public List<Teacher> teachers { get; set; }
+        public List<Student> students { get; set; }
     }
 }

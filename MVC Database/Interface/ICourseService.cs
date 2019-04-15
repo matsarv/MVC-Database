@@ -24,13 +24,17 @@ namespace MVC_Database.Interface
         //one with course, all teacher
         Course SelectCourseTeacher(int id);
 
+
+
         // UPDATE
         bool UpdateCourse(Course course);
-        bool AddTeacherCourse(int id);
+        //bool AddTeacherCourse(int id);
+        bool AddTeacherCourseSave(int teacherid, int id);
+        bool AddStudentCourseSave(int studentid, int id);
 
         // DELETE
         bool DeleteCourse(int id);
         bool DeleteTeacherCourse(int id);
-        bool DeleteStudentCourse(int StudentId, int CourseId);
+        bool DeleteStudentCourse(int studentid, int id);
     }
 }

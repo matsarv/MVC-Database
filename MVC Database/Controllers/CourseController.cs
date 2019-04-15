@@ -120,16 +120,13 @@ namespace MVC_Database.Controllers
             return View(vm);
         }
 
-        // POST: 
-        [HttpPost, ActionName("AddTeacherCourse")]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddTeacherCourseConfirmed(int id)
+        // GET: 
+        public ActionResult AddTeacherCourseSave(int teacherid, int id)
         {
-            _courseService.AddTeacherCourse(id);
+            _courseService.AddTeacherCourseSave(teacherid,id);
 
             return RedirectToAction("Select", "Course", new { id });
         }
-
 
         // GET
         public IActionResult DeleteTeacherCourse(int? id)
@@ -157,6 +154,27 @@ namespace MVC_Database.Controllers
             _courseService.DeleteTeacherCourse(id);
 
             return RedirectToAction("Select", "Course", new { id });
+        }
+
+        // GET
+        public IActionResult DeleteStudentCourse(int? studentid,int? id)
+        {
+            if (id == null || studentid == null)
+            {
+                return NotFound();
+            }
+
+            Course course = _courseService.SelectCourse((int)id);
+
+            //course.StudentCourses;
+            
+
+            //????????????? 
+
+            return View();
+
+            
+
         }
 
         // GET

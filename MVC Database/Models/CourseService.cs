@@ -56,6 +56,16 @@ namespace MVC_Database.Models
                         //    .ThenInclude(s => s.Student)
                         .Include(t => t.Teacher)
                         .SingleOrDefault(x => x.ID == id);
+         
+
+            return result;
+        }
+
+        public StudentCourse SelectStudentCourse (int studentid, int id)
+        {
+            var result =_schoolDBContext.StudentCourses
+                         .SingleOrDefault(x => x.StudentId == studentid);
+
 
             return result;
         }
@@ -80,27 +90,31 @@ namespace MVC_Database.Models
             return wasUpdated;
         }
 
-        public bool AddTeacherCourse(int id)
+        public bool AddTeacherCourseSave(int teacherid, int id)
         {
             bool wasUpdated = false;
 
-            //Course orginal = _schoolDBContext.Courses.SingleOrDefault(item => item.ID == course.ID);
+            var course = _schoolDBContext.Courses
+                        .Include(t => t.Teacher)
+                        .SingleOrDefault(x => x.ID == id);
 
-            var orginal = _schoolDBContext.Courses
-                        //.Include(sc => sc.StudentCourses)
-                        //    .ThenInclude(s => s.Student)
-                        .Include(t => t.Teacher);
-                        //.Where(s => s.ID == 1)
-                        //.ToList();
+            var teacher = _schoolDBContext.Teachers
+                        .SingleOrDefault(x => x.ID == teacherid);
 
-
-            if (orginal != null)
+            if (course != null)
             {
-                //orginal.Course.Teacher = course.Teacher;
-
+                course.Teacher = teacher;
                 _schoolDBContext.SaveChanges();
                 wasUpdated = true;
             }
+
+            return wasUpdated;
+        }
+
+        public bool AddStudentCourseSave(int studentid, int id)
+        {
+            bool wasUpdated = false;
+
 
 
             return wasUpdated;
@@ -147,13 +161,15 @@ namespace MVC_Database.Models
             return wasRemoved;
         }
 
-        public bool DeleteStudentCourse(int StudentId, int CourseId)
+        public bool DeleteStudentCourse(int studentid, int id)
         {
             bool wasRemoved = false;
 
+            //var course = _schoolDBContext.Courses
+            //.Include(t => t.Teacher)
+            //.SingleOrDefault(x => x.ID == id);
 
-
-
+            wasRemoved = true;
             return wasRemoved;
         }
     }
