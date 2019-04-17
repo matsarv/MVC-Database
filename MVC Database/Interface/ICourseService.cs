@@ -15,16 +15,17 @@ namespace MVC_Database.Interface
 
 
         // READ
-        //all
+        //all course
         List<Course> AllCourses();
-        //one
+        //one course
         Course FindCourse(int id);
-        //one with course, teacher, all student
+        //one with course, teacher, all students
         Course SelectCourse(int id);
         //one with course, all teacher
         Course SelectCourseTeacher(int id);
-
-
+        ////one with course, all students
+        //Course SelectCourseStudent(int id);
+        //Course SelectCourseStudent(Course course, int studentid);
 
         // UPDATE
         bool UpdateCourse(Course course);

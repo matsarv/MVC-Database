@@ -56,19 +56,34 @@ namespace MVC_Database.Models
                         //    .ThenInclude(s => s.Student)
                         .Include(t => t.Teacher)
                         .SingleOrDefault(x => x.ID == id);
-         
 
             return result;
         }
-
-        public StudentCourse SelectStudentCourse (int studentid, int id)
+        // one with course, all students
+        public Course SelectCourseStudent(int id)
         {
-            var result =_schoolDBContext.StudentCourses
-                         .SingleOrDefault(x => x.StudentId == studentid);
-
+            var result = _schoolDBContext.Courses
+                        .Include(sc => sc.StudentCourses)
+                            .ThenInclude(s => s.Student)
+                        //.Include(x => x.xx)
+                        .SingleOrDefault(x => x.ID == id);
 
             return result;
         }
+
+        //// one course, students not in course
+        //public Course SelectCourseNoStudent(int id)
+        //{
+        //    var result = _schoolDBContext.Courses
+        //    .Include(sc => sc.StudentCourses)
+        //        .ThenInclude(s => s.Student)
+        //    //.Include(x => x.xx)
+        //    .SingleOrDefault(x => x.ID == id);
+
+
+        //    return result;
+        //}
+
 
         // UPDATE
         public bool UpdateCourse(Course course)
@@ -90,13 +105,13 @@ namespace MVC_Database.Models
             return wasUpdated;
         }
 
-        public bool AddTeacherCourseSave(int teacherid, int id)
+        public bool AddTeacherCourseSave(int teacherid, int courseid)
         {
             bool wasUpdated = false;
 
             var course = _schoolDBContext.Courses
-                        .Include(t => t.Teacher)
-                        .SingleOrDefault(x => x.ID == id);
+                        .Include(x => x.Teacher)
+                        .SingleOrDefault(x => x.ID == courseid);
 
             var teacher = _schoolDBContext.Teachers
                         .SingleOrDefault(x => x.ID == teacherid);
@@ -111,11 +126,44 @@ namespace MVC_Database.Models
             return wasUpdated;
         }
 
-        public bool AddStudentCourseSave(int studentid, int id)
+        public bool AddStudentCourseSave(int studentid, int courseid)
         {
             bool wasUpdated = false;
 
+            var course = _schoolDBContext.Courses
+            .SingleOrDefault(x => x.ID == courseid);
 
+            var student = _schoolDBContext.Students
+            .SingleOrDefault(x => x.ID == studentid);
+
+            if (course != null || student != null)
+            {
+                StudentCourse studentcourse = new StudentCourse() { StudentId = studentid, CourseId = courseid, Student = student, Course = course };
+
+                //foreach (var item in _schoolDBContext.StudentCourses)
+                //{
+                //    if (item.CourseId == courseid)
+                //    {
+
+
+                //        foreach (var item2 in _schoolDBContext.StudentCourses)
+                //        {
+                //            if (item2.StudentId != studentid)
+                //            {
+                //                return wasUpdated;
+
+                //            }
+                //        }
+
+                //    }
+
+                //}
+
+                var result = _schoolDBContext.StudentCourses.Add(studentcourse);
+                _schoolDBContext.SaveChanges();
+                wasUpdated = true;
+
+            }
 
             return wasUpdated;
         }
@@ -161,15 +209,23 @@ namespace MVC_Database.Models
             return wasRemoved;
         }
 
-        public bool DeleteStudentCourse(int studentid, int id)
+        public bool DeleteStudentCourse(int studentid, int courseid)
         {
             bool wasRemoved = false;
 
-            //var course = _schoolDBContext.Courses
-            //.Include(t => t.Teacher)
-            //.SingleOrDefault(x => x.ID == id);
+            Course course = SelectCourse((int)courseid);
 
-            wasRemoved = true;
+            foreach (var item in course.StudentCourses)
+            {
+                if (item.StudentId == studentid)
+                {
+                    _schoolDBContext.StudentCourses.Remove(item);
+                    _schoolDBContext.SaveChanges();
+                    wasRemoved = true;
+                    break;
+                }
+            }
+
             return wasRemoved;
         }
     }

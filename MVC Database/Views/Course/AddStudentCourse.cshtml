@@ -1,26 +1,26 @@
-﻿@model CourseTeachersViewModel
+﻿@model CourseStudentsViewModel
 @{
-    ViewData["Title"] = "Add Teacher To Course";
+    ViewData["Title"] = "Add Student To Course";
 }
 
-<h2>Add Teacher To Course</h2>
+<h2>Add Student To Course</h2>
 <br />
 <h4>@Model.course.Title</h4>
 <br />
 
-@foreach (var item in Model.teachers)
+@foreach (var item in Model.students)
 {
     <table>
         <tbody>
             <tr>
                 <td>
                     @*@Html.DisplayNameFor(modelItem => item.FullName):*@ @Html.DisplayFor(modelItem => item.FullName)
-
                 </td>
                 <td>
-                    <a asp-controller="Course" asp-action="AddTeacherCourseSave" asp-route-TeacherId="@item.ID" asp-route-id="@Model.course.ID" class="btn btn-sm btn-success">Add</a>
+                    <a asp-controller="Course" asp-action="AddStudentCourseSave" asp-route-StudentId="@item.ID" asp-route-id="@Model.course.ID" class="btn btn-sm btn-success">Add</a>
                 </td>
             </tr>
         </tbody>
     </table>
+
 }

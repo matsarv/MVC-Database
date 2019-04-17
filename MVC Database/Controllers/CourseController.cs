@@ -12,11 +12,13 @@ namespace MVC_Database.Controllers
     {
         ICourseService _courseService;
         ITeacherService _teacherService;
+        IStudentService _studentService;
 
-        public CourseController(ICourseService courseService, ITeacherService teacherService)
+        public CourseController(ICourseService courseService, ITeacherService teacherService, IStudentService studentService)
         {
             _courseService = courseService;
             _teacherService = teacherService;
+            _studentService = studentService;
         }
 
         // GET
@@ -83,7 +85,7 @@ namespace MVC_Database.Controllers
         // POST: 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public IActionResult DeleteConfirmed(int id)
         {
             _courseService.DeleteCourse(id);
 
@@ -121,7 +123,7 @@ namespace MVC_Database.Controllers
         }
 
         // GET: 
-        public ActionResult AddTeacherCourseSave(int teacherid, int id)
+        public IActionResult AddTeacherCourseSave(int teacherid, int id)
         {
             _courseService.AddTeacherCourseSave(teacherid,id);
 
@@ -149,7 +151,7 @@ namespace MVC_Database.Controllers
         // POST: 
         [HttpPost, ActionName("DeleteTeacherCourse")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteTeacherCourseConfirmed(int id)
+        public IActionResult DeleteTeacherCourseConfirmed(int id)
         {
             _courseService.DeleteTeacherCourse(id);
 
@@ -157,7 +159,45 @@ namespace MVC_Database.Controllers
         }
 
         // GET
-        public IActionResult DeleteStudentCourse(int? studentid,int? id)
+        public IActionResult AddStudentCourse(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Course course = _courseService.SelectCourse((int)id);
+
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            List<Student> students = _studentService.AllStudents();
+
+            if (students == null)
+            {
+                return NotFound();
+            }
+
+            CourseStudentsViewModel vm = new CourseStudentsViewModel();
+
+            vm.course = course;
+            vm.students = students;
+
+            return View(vm);
+        }
+
+        // GET: 
+        public IActionResult AddStudentCourseSave(int studentid, int id)
+        {
+            _courseService.AddStudentCourseSave(studentid, id);
+
+            return RedirectToAction("Select", "Course", new { id });
+        }
+
+        // GET
+        public IActionResult DeleteStudentCourse(int? studentid, int? id)
         {
             if (id == null || studentid == null)
             {
@@ -166,15 +206,29 @@ namespace MVC_Database.Controllers
 
             Course course = _courseService.SelectCourse((int)id);
 
-            //course.StudentCourses;
-            
+            StudentCourse studentcourse = null;
 
-            //????????????? 
+            foreach (var item in course.StudentCourses)
+            {
+                if (item.StudentId == studentid)
+                {
+                    studentcourse = item;
+                    break;
+                }
+            }
 
-            return View();
+            return View(studentcourse);
 
-            
+        }
 
+        //POST: 
+        [HttpPost, ActionName("DeleteStudentCourse")]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteStudentCourseConfirmed(int? studentid, int? courseid, int? id)
+        {
+            _courseService.DeleteStudentCourse((int)studentid, (int)courseid);
+
+            return RedirectToAction("Select", "Course", new { id });
         }
 
         // GET
@@ -216,7 +270,6 @@ namespace MVC_Database.Controllers
         // POST
         [HttpPost]
         //[HttpPost, ActionName("Create")]
-        //public IActionResult Create(string firstName, string lastName, string email)
         public IActionResult Create([Bind("CourseNumber,Title,Description,Credits")] Course course)
         {
             if (ModelState.IsValid)

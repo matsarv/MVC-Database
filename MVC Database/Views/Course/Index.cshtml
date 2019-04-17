@@ -1,17 +1,15 @@
 ﻿@model IEnumerable<Course>
 
 @{
-    ViewData["Title"] = "Course";
+    ViewData["Title"] = "Course - Index";
 }
 
-<h2>List</h2>
-
-<h4>Course</h4>
-
+<h2>Course - Index</h2>
+<br />
 <p>
     <a asp-controller="Course" asp-action="Create" method="get" class="btn btn-sm btn-success">Create New</a>
 </p>
-
+<br />
 <table>
 
     <thead>
@@ -60,7 +58,6 @@
                 <a asp-controller="Course" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-success">Edit</a>
                 <a asp-controller="Course" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-success">Details</a>
                 <a asp-controller="Course" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-success">Delete</a>
-
             </td>
         </tr>
         }
