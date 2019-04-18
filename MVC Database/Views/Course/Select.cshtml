@@ -9,19 +9,22 @@
 
 <table>
     <tbody>
+        @*<tr>
+            <td>
+                <label asp-for="@Model.ID"></label>: @Model.ID
+
+            </td>
+        </tr>*@
         <tr>
             <td>
-                @Html.DisplayNameFor(model => model.ID): @Html.DisplayFor(model => model.ID)
+                <label asp-for="@Model.Title"></label>: @Model.Title
+
             </td>
         </tr>
         <tr>
             <td>
-                @Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)
+                <label asp-for="@Model.Description"></label>: @Model.Description
+
             </td>
         </tr>
     </tbody>
@@ -38,7 +41,7 @@
         <tbody>
             <tr>
                 <td>
-                    @Html.DisplayNameFor(model => model.Teacher.FullName): @Html.DisplayFor(model => model.Teacher.FullName)
+                    <label asp-for="@Model.Teacher.FullName"></label>: @Model.Teacher.FullName
                 </td>
                 <td>
                     <a asp-controller="Course" asp-action="DeleteTeacherCourse" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Remove</a>
@@ -57,16 +60,14 @@ else
 
 <h4>Students</h4>
 
-@*@if (@Model.StudentCourses.Count != 0)
-    {*@
 @foreach (var item in Model.StudentCourses)
 {
     <table>
         <tbody>
             <tr>
                 <td>
-                    @Html.DisplayNameFor(modelItem => item.Student.FullName): @Html.DisplayFor(modelItem => item.Student.FullName)
-                </td> 
+                    <label asp-for="@item.Student.FullName"></label>: @item.Student.FullName
+                </td>
                 <td>
                     <a asp-controller="Course" asp-action="DeleteStudentCourse" asp-route-StudentId="@item.Student.ID" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Remove</a>
                 </td>
@@ -74,12 +75,12 @@ else
         </tbody>
     </table>
 }
-@*}
-    else
-    {*@
-<br />
-<p><a asp-controller="Course" asp-action="AddStudentCourse" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Add Student</a></p>
-@*}*@
+
+@*@if (@Model.StudentCourses.Count != 0)
+    {
+        <br />
+        <p><a asp-controller="Course" asp-action="AddStudentCourse" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Add Student</a></p>
+    }*@
 
 <br />
 

@@ -9,7 +9,6 @@ namespace MVC_Database.Interface
 
     public interface IStudentService
     {
-        // CRUD
 
         // CREATE
         Student CreateStudent(Student student);

@@ -8,7 +8,6 @@ namespace MVC_Database.Interface
 {
     public interface ITeacherService
     {
-        // CRUD
 
         // CRETAE
         Teacher CreateTeacher(Teacher teacher);

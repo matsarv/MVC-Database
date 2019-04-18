@@ -19,17 +19,16 @@ namespace MVC_Database.Interface
         List<Course> AllCourses();
         //one course
         Course FindCourse(int id);
-        //one with course, teacher, all students
+        //one course, teacher, all students
         Course SelectCourse(int id);
-        //one with course, all teacher
+        //one course, all teacher
         Course SelectCourseTeacher(int id);
-        ////one with course, all students
+        ////one course, all students
         //Course SelectCourseStudent(int id);
         //Course SelectCourseStudent(Course course, int studentid);
 
         // UPDATE
         bool UpdateCourse(Course course);
-        //bool AddTeacherCourse(int id);
         bool AddTeacherCourseSave(int teacherid, int id);
         bool AddStudentCourseSave(int studentid, int id);
 

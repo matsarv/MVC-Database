@@ -180,6 +180,11 @@ namespace MVC_Database.Controllers
                 return NotFound();
             }
 
+            foreach (var item in course.StudentCourses)
+            {
+                students.Remove(item.Student);
+            }
+
             CourseStudentsViewModel vm = new CourseStudentsViewModel();
 
             vm.course = course;

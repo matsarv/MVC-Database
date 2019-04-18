@@ -18,9 +18,6 @@ namespace MVC_Database.Models
             _schoolDBContext = schoolDBContext;
         }
 
-
-
-        // CRUD
         // CREATE
         public Student CreateStudent(Student student)
         {

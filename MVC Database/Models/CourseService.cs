@@ -15,8 +15,6 @@ namespace MVC_Database.Models
             _schoolDBContext = schoolDBContext;
         }
 
-        // CRUD
-
         // CREATE
         public Course CreateCourse(Course course)
         {
@@ -37,7 +35,7 @@ namespace MVC_Database.Models
         {
             return _schoolDBContext.Courses.ToList();
         }
-        // one with course, teacher, all students 
+        // one course, teacher, all students 
         public Course SelectCourse(int id)
         {
             var result = _schoolDBContext.Courses
@@ -48,42 +46,25 @@ namespace MVC_Database.Models
 
             return result;
         }
-        // one with course, all teachers
+        // one course, all teachers
         public Course SelectCourseTeacher(int id)
         {
             var result = _schoolDBContext.Courses
-                        //.Include(sc => sc.StudentCourses)
-                        //    .ThenInclude(s => s.Student)
                         .Include(t => t.Teacher)
                         .SingleOrDefault(x => x.ID == id);
 
             return result;
         }
-        // one with course, all students
+        // one course, all students
         public Course SelectCourseStudent(int id)
         {
             var result = _schoolDBContext.Courses
                         .Include(sc => sc.StudentCourses)
                             .ThenInclude(s => s.Student)
-                        //.Include(x => x.xx)
                         .SingleOrDefault(x => x.ID == id);
 
             return result;
         }
-
-        //// one course, students not in course
-        //public Course SelectCourseNoStudent(int id)
-        //{
-        //    var result = _schoolDBContext.Courses
-        //    .Include(sc => sc.StudentCourses)
-        //        .ThenInclude(s => s.Student)
-        //    //.Include(x => x.xx)
-        //    .SingleOrDefault(x => x.ID == id);
-
-
-        //    return result;
-        //}
-
 
         // UPDATE
         public bool UpdateCourse(Course course)
@@ -140,29 +121,9 @@ namespace MVC_Database.Models
             {
                 StudentCourse studentcourse = new StudentCourse() { StudentId = studentid, CourseId = courseid, Student = student, Course = course };
 
-                //foreach (var item in _schoolDBContext.StudentCourses)
-                //{
-                //    if (item.CourseId == courseid)
-                //    {
-
-
-                //        foreach (var item2 in _schoolDBContext.StudentCourses)
-                //        {
-                //            if (item2.StudentId != studentid)
-                //            {
-                //                return wasUpdated;
-
-                //            }
-                //        }
-
-                //    }
-
-                //}
-
                 var result = _schoolDBContext.StudentCourses.Add(studentcourse);
                 _schoolDBContext.SaveChanges();
                 wasUpdated = true;
-
             }
 
             return wasUpdated;
