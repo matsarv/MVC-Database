@@ -19,7 +19,6 @@ namespace MVC_Database.Models
         // CREATE
         public Teacher CreateTeacher(Teacher teacher)
         {
-
             _schoolDBContext.Teachers.Add(teacher);
             _schoolDBContext.SaveChanges();
 

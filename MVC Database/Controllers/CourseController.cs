@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -125,7 +125,7 @@ namespace MVC_Database.Controllers
         // GET: 
         public IActionResult AddTeacherCourseSave(int teacherid, int id)
         {
-            _courseService.AddTeacherCourseSave(teacherid,id);
+            _courseService.AddTeacherCourseSave(teacherid, id);
 
             return RedirectToAction("Select", "Course", new { id });
         }
@@ -279,6 +279,7 @@ namespace MVC_Database.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 _courseService.CreateCourse(course);
 
                 return RedirectToAction("Index");

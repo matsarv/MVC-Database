@@ -8,10 +8,11 @@ namespace MVC_Database.Models
 {
     public class TeacherCourse
     {
-        [Key]
-        public int ID { get; set; }
+        // Not in use
+        //[Key]
+        //public int ID { get; set; }
 
-        public string TeacherID { get; set; }
-        public string CourseID { get; set; }
+        //public string TeacherID { get; set; }
+        //public string CourseID { get; set; }
     }
 }

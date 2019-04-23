@@ -8,11 +8,9 @@ namespace MVC_Database.Interface
 {
     public interface ICourseService
     {
-        // CRUD
 
         // CREATE
         Course CreateCourse(Course course);
-
 
         // READ
         //all course

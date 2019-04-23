@@ -5,31 +5,36 @@
 }
 
 <h2>Course - Select</h2>
+
 <br />
+<p>Add and/or remove Teachers and Students form this Course!</p>
+
+<hr />
+<br />
+
+<h4>Course</h4>
 
 <table>
     <tbody>
-        @*<tr>
+        <tr>
             <td>
-                <label asp-for="@Model.ID"></label>: @Model.ID
-
+                <label asp-for="@Model.CourseNumber"></label>: @Model.CourseNumber
             </td>
-        </tr>*@
+        </tr>
         <tr>
             <td>
                 <label asp-for="@Model.Title"></label>: @Model.Title
-
             </td>
         </tr>
         <tr>
             <td>
                 <label asp-for="@Model.Description"></label>: @Model.Description
-
             </td>
         </tr>
     </tbody>
 </table>
 
+<hr />
 <br />
 
 <h4>Teacher</h4>
@@ -56,6 +61,7 @@ else
     <p><a asp-controller="Course" asp-action="AddTeacherCourse" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Add Teacher</a></p>
 }
 
+<hr />
 <br />
 
 <h4>Students</h4>
@@ -76,13 +82,10 @@ else
     </table>
 }
 
-@*@if (@Model.StudentCourses.Count != 0)
-    {
-        <br />
-        <p><a asp-controller="Course" asp-action="AddStudentCourse" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Add Student</a></p>
-    }*@
-
 <br />
+<p><a asp-controller="Course" asp-action="AddStudentCourse" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Add Student</a></p>
+
+<hr />
 
 <table>
     <tr>

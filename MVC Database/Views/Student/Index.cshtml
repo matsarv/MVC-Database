@@ -1,16 +1,18 @@
 ﻿@model IEnumerable<Student>
 
 @{
-    ViewData["Title"] = "Student";
+    ViewData["Title"] = "Students - Index";
 }
 
-<h2>List</h2>
+<h2>Stundents - Index</h2>
 
-<h4>Student</h4>
+<br />
+
 
 <p>
     <a asp-controller="Student" asp-action="Create" method="get" class="btn btn-sm btn-success">Create New</a>
 </p>
+<hr />
 
  @*Fix new CSS - class="table"*@
 <table>
@@ -69,3 +71,5 @@
     </tbody>
 
 </table>
+
+<hr />

@@ -1,64 +1,27 @@
 ﻿@model Student
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Student - Deletet";
 }
 
-<h2>Delete</h2>
+<h2>Student - Delete</h2>
 
-<h4>Student</h4>
-
+<br />
 
 <p>Are you sure you want to delete this?</p>
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-1">
-            @Html.LabelFor(model => model.ID)
-        </dt>
-        <dd class="col-2">
-            @Html.LabelFor(model => model.FullName)
-        </dd>
-        @*<dt class="col-2">
-            @Html.LabelFor(model => model.FirstName)
-        </dt>
-        <dt class="col-2">
-            @Html.LabelFor(model => model.LastName)
-        </dt>*@
-        <dd class="col-2">
-            @Html.LabelFor(model => model.Email)
-        </dd>
-        <dd class="col-6">
 
-        </dd>
-    </dl>
+<hr />
 
-    <dl class="row">
-        <dd class="col-1">
-            @Html.DisplayFor(model => model.ID)
-        </dd>
-        <dd class="col-2">
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-        @*<dd class="col-2">
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-        <dd class="col-2">
-            @Html.DisplayFor(model => model.LastName)
-        </dd>*@
-        <dd class="col-2">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dd class="col-6">
+<table>
+    <tr><th>Student</th></tr>
+    <tr><td>@Model.FullName @Model.Email</td></tr>
+</table>
 
-        </dd>
-    </dl>
+<hr />
 
+<form asp-action="Delete">
+    <input type="submit" value="Delete" class="btn btn-sm btn-danger" /> |
+    <a asp-action="Index">Back to List</a>
+</form>
 
-
-    <form asp-action="Delete">
-        <input type="submit" value="Delete" class="btn btn-sm btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
 

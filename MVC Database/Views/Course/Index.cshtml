@@ -1,22 +1,20 @@
 ﻿@model IEnumerable<Course>
 
 @{
-    ViewData["Title"] = "Course - Index";
+    ViewData["Title"] = "Courses - Index";
 }
 
-<h2>Course - Index</h2>
+<h2>Courses - Index</h2>
 <br />
 <p>
     <a asp-controller="Course" asp-action="Create" method="get" class="btn btn-sm btn-success">Create New</a>
 </p>
-<br />
+
+<hr />
 <table>
 
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ID)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.CourseNumber)
             </th>
@@ -37,9 +35,6 @@
         @foreach (var item in Model)
         {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CourseNumber)
             </td>
@@ -64,4 +59,6 @@
     </tbody>
 
 </table>
+
+<hr />
 

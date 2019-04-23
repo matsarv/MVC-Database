@@ -1,10 +1,10 @@
-﻿@model Teacher
+﻿@model Assignment
 
 @{
-    ViewData["Title"] = "Teacher - Delete";
+    ViewData["Title"] = "Assignment - Delete";
 }
 
-<h2>Teacher - Delete</h2>
+<h2>Assignment - Delete</h2>
 
 <br />
 
@@ -13,9 +13,8 @@
 <hr />
 
 <table>
-    <tr><th>Teacher</th></tr>
-    <tr><td>@Model.LastName @Model.Email</td></tr>
-
+    <tr><th>Assignment</th></tr>
+    <tr><td>@Model.Title</td></tr>
 </table>
 
 <hr />
@@ -24,5 +23,3 @@
     <input type="submit" value="Delete" class="btn btn-sm btn-danger" /> |
     <a asp-action="Index">Back to List</a>
 </form>
-
-

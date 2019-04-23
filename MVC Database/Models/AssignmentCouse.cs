@@ -8,9 +8,10 @@ namespace MVC_Database.Models
 {
     public class AssignmentCouse
     {
-        [Key]
-        public int ID { get; set; }
-        public string AssignmentID { get; set; }
-        public string CourseID { get; set; }
+        // Not in use
+        //[Key]
+        //public int ID { get; set; }
+        //public string AssignmentID { get; set; }
+        //public string CourseID { get; set; }
     }
 }

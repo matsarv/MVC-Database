@@ -7,65 +7,24 @@
 
 <br />
 <p>Are you sure you want to remove this?</p>
+<hr />
+<table>
+    <tr>
+        <th>Teacher</th>
+    </tr>
+    <tr>
+        <td>@Model.Teacher.FullName</td>
+    </tr>
+    <tr>
+        <th>Course</th>
+    </tr>
+    <tr>
+        <td>@Model.Title</td>
+    </tr>
+</table>
 
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-1">
-            @Html.LabelFor(model => model.ID)
-        </dt>
-        <dd class="col-1">
-            @Html.LabelFor(model => model.CourseNumber)
-        </dd>
-        <dt class="col-3">
-            @Html.LabelFor(model => model.Title)
-        </dt>
-        <dd class="col-3">
-            @Html.LabelFor(model => model.Description)
-        </dd>
-        <dd class="col-3">
-            @Html.LabelFor(model => model.Teacher.FullName)
-        </dd>
-        <dd class="col-1">
-
-        </dd>
-    </dl>
-
-    <dl class="row">
-        <dd class="col-1">
-            @Html.DisplayFor(model => model.ID)
-        </dd>
-        <dd class="col-1">
-            @Html.DisplayFor(model => model.CourseNumber)
-        </dd>
-        <dd class="col-3">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dd class="col-3">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dd class="col-3">
-            @Html.DisplayFor(model => model.Teacher.FullName)
-        </dd>
-        <dd class="col-1">
-
-        </dd>
-    </dl>
-
-
-    @*  Use to below in every View  *@
-    @*<table>
-        <tr>
-            <td><label asp-for="Teacher.FullName"></label></td>
-        </tr>
-        <tr>
-            <td>@Model.Teacher.FullName</td>
-        </tr>
-    </table>*@
-
-    <form asp-action="DeleteTeacherCourse">
-        <br>
-        <input type="submit" value="Remove" class="btn btn-sm btn-danger" /> |
-        <a asp-action="Select" asp-route-id="@Model.ID">Back to List</a>
-    </form>
-</div>
+<hr />
+<form asp-action="DeleteTeacherCourse">
+    <input type="submit" value="Remove" class="btn btn-sm btn-danger" /> |
+    <a asp-action="Select" asp-route-id="@Model.ID">Back to List</a>
+</form>

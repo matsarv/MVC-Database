@@ -18,10 +18,21 @@ namespace MVC_Database.Models
         // CREATE
         public Course CreateCourse(Course course)
         {
-            _schoolDBContext.Courses.Add(course);
-            _schoolDBContext.SaveChanges();
+            //var coursenumber = _schoolDBContext.Courses
+            //.SingleOrDefault(x => x.CourseNumber == course.CourseNumber);
 
-            return course;
+            //if (coursenumber == null)
+            //{
+                _schoolDBContext.Courses.Add(course);
+                _schoolDBContext.SaveChanges();
+                return course;
+            //}
+            //else
+            //{
+                
+            //}
+
+            //return course;
         }
 
         // READ

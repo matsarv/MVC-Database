@@ -1,33 +1,25 @@
 ﻿@model IEnumerable<Teacher>
 
 @{
-    ViewData["Title"] = "Treacher";
+    ViewData["Title"] = "Teachers - Index";
 }
 
-<h2>List</h2>
-
-<h4>Teacher</h4>
+<h2>Teachers - Index</h2>
+<br />
 
 <p>
     <a class="btn btn-sm btn-success" asp-controller="Teacher" asp-action="Create" method="get">Create New</a>
 </p>
+
+<hr />
 
 <table>
 
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ID)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.FullName)
             </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
@@ -40,17 +32,8 @@
         {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.FullName)
             </td>
-            @*<td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
@@ -65,3 +48,4 @@
     </tbody>
 
 </table>
+<hr />

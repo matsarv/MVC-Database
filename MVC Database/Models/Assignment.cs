@@ -14,22 +14,35 @@ namespace MVC_Database.Models
         //    A, B, C, D, E
         //}
 
+        [Key]
         public int ID { get; set; }
 
-        public int AssignmentID { get; set; }
+        [Required]
+        [Display(Name = "Assignment")]
+        public int AssignmentNumber { get; set; }
 
-        public int CourseID { get; set; }
+        [Required]
+        [StringLength(50, MinimumLength = 1)]
+        [Display(Name = "Title")]
+        public string Title { get; set; }
 
-        public int StudentID { get; set; }
+        [Required]
+        [StringLength(50, MinimumLength = 1)]
+        [Display(Name = "Description")]
+        public string Description { get; set; }
 
-        public int TeacherID { get; set; }
+        //[Required]
+        //[Display(Name = "Credits")]
+        //public int Credits { get; set; }
 
-        [DisplayFormat(NullDisplayText = "No grade")]
-        public string Grade { get; set; }
+        //[DisplayFormat(NullDisplayText = "No grade")]
+        //public string Grade { get; set; }
         //public Grade? Grade{ get; set; }
 
         //public virtual Course Course { get; set; }
-        //public virtual Student Student { get; set; }
+
+        public List<Course> Courses { get; set; }
+
 
     }
 }

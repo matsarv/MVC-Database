@@ -7,39 +7,30 @@
 
 <br />
 <p>Are you sure you want to remove this?</p>
+<hr />
 
-<div>
+<table>
+    <tr>
+        <th>Student</th>
+    </tr>
+    <tr>
+        <td>@Model.Student.FullName</td>
+    </tr>
+    <tr>
+        <th>Course</th>
+    </tr>
+    <tr>
+        <td>@Model.Course.Title</td>
+    </tr>
+</table>
 
-    @* Change, Use to below in every View *@
-    <table>
-        <tr>
-            <td>Student Name</td>
-        </tr>
-        <tr>
-            <td>@Model.Student.FullName</td>
-        </tr>
-        <tr>
-            <td>Course Title</td>
-        </tr>
-        <tr>
-            <td>@Model.Course.Title</td>
-        </tr>
-    </table>
+<hr />
+<form asp-action="DeleteStudentCourse">
 
-    <br />
-    <form asp-action="DeleteStudentCourse">
-        <br>
-        <input type="hidden" name="studentid" value="@Model.StudentId" />
-        <input type="hidden" name="courseid" value="@Model.CourseId" />
-        <input type="submit" value="Remove" class="btn btn-sm btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
+    <input type="hidden" name="studentid" value="@Model.StudentId" />
+    <input type="hidden" name="courseid" value="@Model.CourseId" />
+    <input type="submit" value="Remove" class="btn btn-sm btn-danger" /> |
+    <a asp-action="Select" asp-route-id="@Model.Course.ID">Back to List</a>
+</form>
 
-    @*<a asp-action="DeleteStudentCourseSave" 
-        asp-route-studentid="@Model.StudentId" 
-        asp-route-courseid="@Model.CourseId" 
-        asp-route-id="@Model.Course.ID" 
-        class="btn btn-sm btn-danger">Remove</a> |
-    <a asp-action="Select" asp-route-id="@Model.Course.ID">Back to List</a>*@
 
-</div>

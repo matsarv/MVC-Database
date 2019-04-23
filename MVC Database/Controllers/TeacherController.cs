@@ -120,8 +120,8 @@ namespace MVC_Database.Controllers
                 return RedirectToAction("Index");
 
             }
-
-            return View(_teacherService.AllTeachers());
+            return RedirectToAction("Index");
+            //return View(_teacherService.AllTeachers());
 
         }
     }

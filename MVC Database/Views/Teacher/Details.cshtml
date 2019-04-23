@@ -1,52 +1,24 @@
 ﻿@model Teacher
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Teacher - Details";
 }
 
-<h2>Details</h2>
+<h2>Teacher - Detailsr</h2>
 
-<h4>Teacher</h4>
+<br />
+<hr />
 
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-1">
-            @Html.LabelFor(model => model.ID)
-        </dt>
-        <dd class="col-2">
-            @Html.LabelFor(model => model.FirstName)
-        </dd>
-        <dt class="col-2">
-            @Html.LabelFor(model => model.LastName)
-        </dt>
-        <dd class="col-2">
-            @Html.LabelFor(model => model.Email)
-        </dd>
-        <dd class="col-6">
+<table>
+    <tr><th><label asp-for="@Model.FirstName"></label></th></tr>
+    <tr><td>@Model.FirstName</td></tr>
+    <tr><th><label asp-for="@Model.LastName"></label></th></tr>
+    <tr><td>@Model.LastName</td></tr>
+    <tr><th><label asp-for="@Model.Email"></label></th></tr>
+    <tr><td>@Model.Email</td></tr>
+</table>
 
-        </dd>
-    </dl>
-
-    <dl class="row">
-        <dd class="col-1">
-            @Html.DisplayFor(model => model.ID)
-        </dd>
-        <dd class="col-2">
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-        <dd class="col-2">
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-        <dd class="col-2">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dd class="col-6">
-
-        </dd>
-    </dl>
-
-</div>
+<hr />
 
 <td>
     <a asp-controller="Teacher" asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Edit</a>

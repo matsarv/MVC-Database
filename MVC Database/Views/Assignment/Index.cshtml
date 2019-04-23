@@ -1,9 +1,59 @@
 ﻿@model IEnumerable<Assignment>
 
 @{
-    ViewData["Title"] = "Assignment";
+    ViewData["Title"] = "Assignments - Index";
 }
 
-<h2>List</h2>
+<h2>Assignments - Index</h2>
 
-<h4>Assignment</h4>
+<br />
+
+<p>
+    <a asp-controller="Assignment" asp-action="Create" method="get" class="btn btn-sm btn-success">Create New</a>
+</p>
+<hr />
+
+<table>
+
+<thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AssignmentNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+
+        <th></th>
+    </tr>
+</thead>
+
+<tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssignmentNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+
+            <td>
+                <a asp-controller="Assignment" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-success">Edit</a>
+                <a asp-controller="Assignment" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-success">Details</a>
+                <a asp-controller="Assignment" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-success">Delete</a>
+            </td>
+        </tr>
+    }
+</tbody>
+
+</table>
+
+<hr />

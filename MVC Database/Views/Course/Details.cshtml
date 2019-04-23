@@ -5,55 +5,40 @@
 }
 
 <h2>Course - Details</h2>
+
 <br />
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-1">
-            @Html.LabelFor(model => model.ID)
-        </dt>
-        <dd class="col-2">
-            @Html.LabelFor(model => model.CourseNumber)
-        </dd>
-        <dt class="col-2">
-            @Html.LabelFor(model => model.Title)
-        </dt>
-        <dd class="col-2">
-            @Html.LabelFor(model => model.Description)
-        </dd>
-        <dd class="col-2">
-            @Html.LabelFor(model => model.Credits)
-        </dd>
-        <dd class="col-3">
+<hr />
 
-        </dd>
-    </dl>
+<h4>Course</h4>
 
-    <dl class="row">
-        <dd class="col-1">
-            @Html.DisplayFor(model => model.ID)
-        </dd>
-        <dd class="col-2">
-            @Html.DisplayFor(model => model.CourseNumber)
-        </dd>
-        <dd class="col-2">
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-        <dd class="col-2">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dd class="col-2">
-            @Html.DisplayFor(model => model.Credits)
-        </dd>
-        <dd class="col-3">
+<table>
+    <tr><th>@*<label asp-for="@Model.CourseNumber"></label>*@Course Number</th></tr>
+    <tr><td>@Model.CourseNumber</td></tr>
+    <tr><th><label asp-for="@Model.Title"></label></th></tr>
+    <tr><td>@Model.Title</td></tr>
+    <tr><th><label asp-for="@Model.Description"></label></th></tr>
+    <tr><td>@Model.Description</td></tr>
+    <tr><th><label asp-for="@Model.Credits"></label></th></tr>
+    <tr><td>@Model.Credits</td></tr>
+</table>
+<br />
 
-        </dd>
-    </dl>
+<a asp-controller="Course" asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Edit</a>
+<a asp-controller="Course" asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Delete</a>
 
-</div>
+<hr />
 
-<td>
-    <a asp-controller="Course" asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Edit</a>
-    <a asp-controller="Course" asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Delete</a> |
+<h4>Assignment</h4>
+
+<br />
+<p>
+    <a asp-controller="Course" asp-action="CreateAssignment" method="get" class="btn btn-sm btn-success">Create New</a>
+</p>
+
+<hr />
+
+<p>
+    @*<a asp-controller="Course" asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Edit</a>
+    <a asp-controller="Course" asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Delete</a> |*@
     <a asp-action="Index">Back to List</a>
-</td>
+</p>
