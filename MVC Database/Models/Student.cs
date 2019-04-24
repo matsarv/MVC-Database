@@ -17,16 +17,14 @@ namespace MVC_Database.Models
         public string FirstName { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(50, MinimumLength = 1)]
         [Display(Name = "Last Name")]
-        //[StringLength(50, MinimumLength = 1)]
         public string LastName { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(50, MinimumLength = 1)]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Email")]
-        //[StringLength(50, MinimumLength = 1)]
         public string Email { get; set; }
 
         //[DataType(DataType.Date)]

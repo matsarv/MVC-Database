@@ -16,12 +16,14 @@
     <tr><td>@Model.Title</td></tr>
     <tr><th><label asp-for="@Model.Description"></label></th></tr>
     <tr><td>@Model.Description</td></tr>
+    <tr><th><label asp-for="@Model.Credits"></label></th></tr>
+    <tr><td>@Model.Credits</td></tr>
 </table>
 
 <hr />
 
 <td>
-    <a asp-controller="Assignment" asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Edit</a>
-    <a asp-controller="Assignment" asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Delete</a> |
+    <a asp-controller="Assignment" asp-action="Edit" asp-route-id="@Model.CourseID" class="btn btn-sm btn-success">Edit</a>
+    <a asp-controller="Assignment" asp-action="Delete" asp-route-id="@Model.CourseID" class="btn btn-sm btn-success">Delete</a> |
     <a asp-action="Index">Back to List</a>
 </td>

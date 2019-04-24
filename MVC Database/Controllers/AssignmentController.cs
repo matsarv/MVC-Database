@@ -89,7 +89,7 @@ namespace MVC_Database.Controllers
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit([Bind("ID,AssignmentNumber,Title,Description,Email")] Assignment assignment)
+        public IActionResult Edit([Bind("ID,CourseID,AssignmentNumber,Title,Description,Email,Credits")] Assignment assignment)
         {
             if (ModelState.IsValid)
             {
@@ -110,7 +110,7 @@ namespace MVC_Database.Controllers
         // POST
         [HttpPost]
         //[HttpPost, ActionName("Create")]
-        public IActionResult Create([Bind("AssignmentNumber,Title,Description")] Assignment assignment)
+        public IActionResult Create([Bind("CourseID,AssignmentNumber,Title,Description,Credits")] Assignment assignment)
         {
             if (ModelState.IsValid)
             {

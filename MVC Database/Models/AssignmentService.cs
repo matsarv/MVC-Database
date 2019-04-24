@@ -40,12 +40,13 @@ namespace MVC_Database.Models
         {
             bool wasUpdated = false;
 
-            Assignment orginal = _schoolDBContext.Assignments.SingleOrDefault(item => item.ID == assignment.ID);
+            Assignment orginal = _schoolDBContext.Assignments.SingleOrDefault(item => item.CourseID == assignment.CourseID);
             if (orginal != null)
             {
                 orginal.AssignmentNumber = assignment.AssignmentNumber;
                 orginal.Title = assignment.Title;
                 orginal.Description = assignment.Description;
+                orginal.Credits = assignment.Credits;
 
                 _schoolDBContext.SaveChanges();
                 wasUpdated = true;

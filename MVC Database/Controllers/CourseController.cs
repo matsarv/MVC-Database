@@ -13,12 +13,14 @@ namespace MVC_Database.Controllers
         ICourseService _courseService;
         ITeacherService _teacherService;
         IStudentService _studentService;
+        IAssignmentService _assignmentService;
 
-        public CourseController(ICourseService courseService, ITeacherService teacherService, IStudentService studentService)
+        public CourseController(ICourseService courseService, ITeacherService teacherService, IStudentService studentService, IAssignmentService assignmentService)
         {
             _courseService = courseService;
             _teacherService = teacherService;
             _studentService = studentService;
+            _assignmentService = assignmentService;
         }
 
         // GET
@@ -288,5 +290,66 @@ namespace MVC_Database.Controllers
             return View(_courseService.AllCourses());
 
         }
+
+
+
+        //GET
+        public IActionResult AddAssignmentsCourse(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Course course = _courseService.SelectCourse((int)id);
+
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            //_schoolDBContext.Assignments.ToList();
+            List<Assignment> assignments = _assignmentService.AllAssignments();
+
+            if (assignments == null)
+            {
+                return NotFound();
+            }
+
+            //foreach (var item in assignments)
+            //{
+            //    if (item.CourseID != (int)id)
+            //    {
+            //        assignments.Remove(item);
+            //    }
+            //}
+
+
+            CourseAssigmentsViewModel vm = new CourseAssigmentsViewModel();
+
+            vm.course = course;
+            vm.assignments = assignments;
+
+            return View(vm);
+        }
+
+        //GET 
+        public IActionResult DeleteAssignmentCourse(int? assignmentid, int? id)
+        {
+            _assignmentService.DeleteAssignment((int)assignmentid);
+
+            return RedirectToAction("AddAssignmentsCourse", "Course", new { id });
+
+        }
+        //[HttpPost, ActionName("DeleteAssignmentCourse")]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult DeleteAssignmentCourseSave(int? assignmnetid, int courseid, int? id)
+        //{
+        //    //_courseService.DeleteAssignmentCourse((int)assignmnetid, (int)courseid);
+
+        //    return RedirectToAction("Select", "Course", new { id });
+        //}
     }
+
+
 }

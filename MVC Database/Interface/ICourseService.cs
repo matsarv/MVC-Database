@@ -34,5 +34,9 @@ namespace MVC_Database.Interface
         bool DeleteCourse(int id);
         bool DeleteTeacherCourse(int id);
         bool DeleteStudentCourse(int studentid, int id);
+
+        bool DeleteAssignmentCourse(int assignmentid, int id);
+
+
     }
 }

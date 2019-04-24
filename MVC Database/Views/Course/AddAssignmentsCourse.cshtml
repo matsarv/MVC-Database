@@ -1,0 +1,38 @@
+﻿@model CourseAssigmentsViewModel
+@{
+    ViewData["Title"] = "Add Assignments To Course";
+}
+
+<h2>Add Assignments To Course</h2>
+<br />
+<h4>@Model.course.Title</h4>
+<br />
+<hr />
+
+
+@foreach (var item in Model.assignments)
+{
+    if (item.CourseID == Model.course.ID)
+    {
+        <table>
+
+            <tbody>
+                <tr>
+                    <td>
+                        @item.Title
+                    </td>
+                    <td></td>
+                    <td>
+                        <a asp-controller="Course" asp-action="DeleteAssignmentCourse" asp-route-assignmentid="@item.ID" asp-route-id="@Model.course.ID" methor="post" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+
+}
+
+
+<hr />
+<a asp-controller="Course" asp-action="Select" asp-route-id="@Model.course.ID">Back to Course</a> | 
+<a asp-controller="Course" asp-action="Index" >Back to List</a>

@@ -18,6 +18,10 @@ namespace MVC_Database.Models
         public int ID { get; set; }
 
         [Required]
+        [Display(Name = "Course")]
+        public int CourseID { get; set; }
+
+        [Required]
         [Display(Name = "Assignment")]
         public int AssignmentNumber { get; set; }
 
@@ -31,9 +35,9 @@ namespace MVC_Database.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
 
-        //[Required]
-        //[Display(Name = "Credits")]
-        //public int Credits { get; set; }
+        [Required]
+        [Display(Name = "Credits")]
+        public int Credits { get; set; }
 
         //[DisplayFormat(NullDisplayText = "No grade")]
         //public string Grade { get; set; }
