@@ -102,8 +102,10 @@ namespace MVC_Database.Controllers
         }
 
         // GET
-        public IActionResult Create()
+        public IActionResult Create(int courseid, string coursename)
         {
+            ViewBag.coursename = coursename;
+            ViewBag.courseid = courseid;
             return View();
         }
 
@@ -115,11 +117,14 @@ namespace MVC_Database.Controllers
             if (ModelState.IsValid)
             {
                 _assignmentService.CreateAssignment(assignment);
+                //return RedirectToAction("Index");
                 return RedirectToAction("Index");
+                //return RedirectToAction("Select", "Course", new { id });
 
             }
 
-            return View(_assignmentService.AllAssignments());
+            //return View(_assignmentService.AllAssignments());
+            return RedirectToAction("Index");
 
         }
 

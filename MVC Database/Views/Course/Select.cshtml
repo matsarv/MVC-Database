@@ -38,9 +38,28 @@
 
 <h4>Assignments</h4>
 
+@if (@Model.Assignment != null)
+{
+    foreach (var item in Model.Assignment)
+    {
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <label asp-for="@item.Title"></label>: @item.Title
+                    </td>
+                    @*<td>
+                            <a asp-controller="Course" asp-action="DeleteTeacherCourse" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Remove</a>
+                        </td>*@
+                </tr>
+            </tbody>
+        </table>
+    }
+
+}
 <br />
 <p>
-    <a asp-controller="Course" asp-action="AddAssignmentsCourse" asp-route-id="@Model.ID" method="get" class="btn btn-sm btn-success">Add Assignments</a>
+    <a asp-controller="Course" asp-action="AddAssignmentsCourse" asp-route-id="@Model.ID" method="get" class="btn btn-sm btn-success">Manage Assignments</a>
 </p>
 
 

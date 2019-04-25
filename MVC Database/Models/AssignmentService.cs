@@ -40,9 +40,10 @@ namespace MVC_Database.Models
         {
             bool wasUpdated = false;
 
-            Assignment orginal = _schoolDBContext.Assignments.SingleOrDefault(item => item.CourseID == assignment.CourseID);
+            Assignment orginal = _schoolDBContext.Assignments.SingleOrDefault(item => item.ID == assignment.ID);
             if (orginal != null)
             {
+                orginal.CourseID = assignment.CourseID;
                 orginal.AssignmentNumber = assignment.AssignmentNumber;
                 orginal.Title = assignment.Title;
                 orginal.Description = assignment.Description;
@@ -71,5 +72,6 @@ namespace MVC_Database.Models
 
             return wasRemoved;
         }
+
     }
 }

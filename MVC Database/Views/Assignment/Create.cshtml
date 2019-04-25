@@ -5,6 +5,10 @@
 
 <h2>Assignment - Create</h2>
 <br />
+
+<h4>Course</h4>
+<div id="coursename"></div>
+
 <hr />
 
 <div class="row">
@@ -12,12 +16,9 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="form-group">
-                Dropdown to select Course
-                @*<label asp-for="AssignmentNumber" class="control-label"></label>
-            <input asp-for="AssignmentNumber" class="form-control" />
-            <span asp-validation-for="AssignmentNumber" class="text-danger"></span>*@
-            </div>
+            <input type="hidden" asp-for="ID" class="form-control" />
+            <input type="hidden" asp-for="CourseID" value="@ViewBag.courseid" class="form-control" />
+
             <div class="form-group">
                 <label asp-for="AssignmentNumber" class="control-label"></label>
                 <input asp-for="AssignmentNumber" class="form-control" />
@@ -40,8 +41,22 @@
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-sm btn-success" /> |
-                <a asp-action="Index">Back to List</a>
+                <a asp-controller="Course" asp-action="AddAssignmentsCourse" asp-route-id="@ViewBag.courseid">Back to List</a>
             </div>
         </form>
     </div>
 </div>
+
+
+<script>
+
+    document.getElementById('coursename').innerHTML = getUrlParameter('coursename');
+
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    };
+
+</script>

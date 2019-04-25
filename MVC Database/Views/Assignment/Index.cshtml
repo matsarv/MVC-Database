@@ -9,7 +9,8 @@
 <br />
 
 <p>
-    <a asp-controller="Assignment" asp-action="Create" method="get" class="btn btn-sm btn-success">Create New</a>
+    @*<a asp-controller="Assignment" asp-action="Create" method="get" class="btn btn-sm btn-success">Create New</a>*@
+    <a asp-controller="Course" asp-action="Index" class="btn btn-sm btn-success">Create New via Course Index - Select</a>
 </p>
 <hr />
 
@@ -18,7 +19,11 @@
 <thead>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.AssignmentNumber)
+            @Html.DisplayNameFor(model => model.CourseID)
+        </th>
+        <th>
+            Nr
+            @*@Html.DisplayNameFor(model => model.AssignmentNumber)*@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Title)
@@ -39,6 +44,9 @@
     {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.CourseID)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.AssignmentNumber)
         </td>
         <td>
@@ -52,9 +60,9 @@
         </td>
 
         <td>
-            <a asp-controller="Assignment" asp-action="Edit" asp-route-id="@item.CourseID" class="btn btn-sm btn-success">Edit</a>
-            <a asp-controller="Assignment" asp-action="Details" asp-route-id="@item.CourseID" class="btn btn-sm btn-success">Details</a>
-            <a asp-controller="Assignment" asp-action="Delete" asp-route-id="@item.CourseID" class="btn btn-sm btn-success">Delete</a>
+            <a asp-controller="Assignment" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-success">Edit</a>
+            <a asp-controller="Assignment" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-success">Details</a>
+            <a asp-controller="Assignment" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-success">Delete</a>
         </td>
     </tr>
     }

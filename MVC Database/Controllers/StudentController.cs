@@ -125,8 +125,8 @@ namespace MVC_Database.Controllers
             }
 
             //return View(student);
-            return View(_studentService.AllStudents());
-
+            //return View(_studentService.AllStudents());
+            return RedirectToAction("Index");
         }
     }
     

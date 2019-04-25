@@ -38,7 +38,7 @@ namespace MVC_Database.Models
 
         public Teacher Teacher {get; set;}
 
-        public Assignment Assignment { get; set; }
+        public List<Assignment> Assignment { get; set; }
 
     }
 }

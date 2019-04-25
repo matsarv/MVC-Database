@@ -22,7 +22,7 @@ namespace MVC_Database.Models
         public int CourseID { get; set; }
 
         [Required]
-        [Display(Name = "Assignment")]
+        [Display(Name = "Assignment Number")]
         public int AssignmentNumber { get; set; }
 
         [Required]
@@ -45,8 +45,8 @@ namespace MVC_Database.Models
 
         //public virtual Course Course { get; set; }
 
-        public List<Course> Courses { get; set; }
-
+        
+        
 
     }
 }

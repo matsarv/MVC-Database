@@ -287,8 +287,8 @@ namespace MVC_Database.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(_courseService.AllCourses());
-
+            //return View(_courseService.AllCourses());
+            return RedirectToAction("Index");
         }
 
 

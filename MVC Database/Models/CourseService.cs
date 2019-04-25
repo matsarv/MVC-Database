@@ -53,6 +53,7 @@ namespace MVC_Database.Models
                         .Include(sc => sc.StudentCourses)
                             .ThenInclude(s => s.Student)
                         .Include(t => t.Teacher)
+                        .Include(a => a.Assignment)
                         .SingleOrDefault(x => x.ID == id);
 
             return result;
