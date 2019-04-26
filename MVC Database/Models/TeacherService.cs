@@ -25,7 +25,7 @@ namespace MVC_Database.Models
             return teacher;
         }
 
-        //READ
+        // READ
         //all
         public List<Teacher> AllTeachers()
         {

@@ -19,7 +19,6 @@ namespace MVC_Database.Controllers
             _studentService = studentService;
         }
 
-
         // GET
         public IActionResult Index()
         {
@@ -113,8 +112,6 @@ namespace MVC_Database.Controllers
 
         // POST
         [HttpPost]
-        //[HttpPost, ActionName("Create")]
-        //public IActionResult Create(string firstName, string lastName, string email)
         public IActionResult Create([Bind("FirstName,LastName,Email")] Student student)
         {
             if (ModelState.IsValid)
@@ -124,9 +121,8 @@ namespace MVC_Database.Controllers
                 return RedirectToAction("Index");
             }
 
-            //return View(student);
-            //return View(_studentService.AllStudents());
-            return RedirectToAction("Index");
+            return View(student);
+
         }
     }
     

@@ -7,67 +7,28 @@
 <h2>Assignments - Index</h2>
 
 <br />
+<p><a asp-controller="Course" asp-action="Index" class="btn btn-sm btn-success">Back to Courses Index - Use Select</a></p>
 
-<p>
-    @*<a asp-controller="Assignment" asp-action="Create" method="get" class="btn btn-sm btn-success">Create New</a>*@
-    <a asp-controller="Course" asp-action="Index" class="btn btn-sm btn-success">Create New via Course Index - Select</a>
-</p>
 <hr />
 
-<table>
+<div class="row">
+    <div class="col-2">@Html.DisplayNameFor(model => model.AssignmentNumber)</div>
+    <div class="col-7">@Html.DisplayNameFor(model => model.Title)</div>
+    <div class="col-3"></div>
+</div>
 
-<thead>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseID)
-        </th>
-        <th>
-            Nr
-            @*@Html.DisplayNameFor(model => model.AssignmentNumber)*@
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Credits)
-        </th>
-
-        <th></th>
-    </tr>
-</thead>
-
-<tbody>
-    @foreach (var item in Model)
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AssignmentNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Credits)
-        </td>
-
-        <td>
+<br />
+@foreach (var item in Model)
+{
+    <div id="row" class="row">
+        <div class="col-2">@item.AssignmentNumber</div>
+        <div class="col-7">@item.Title</div>
+        <div class="col-3">
             <a asp-controller="Assignment" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-success">Edit</a>
             <a asp-controller="Assignment" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-success">Details</a>
             <a asp-controller="Assignment" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-success">Delete</a>
-        </td>
-    </tr>
-    }
-</tbody>
-
-</table>
+        </div>
+    </div>
+}
 
 <hr />

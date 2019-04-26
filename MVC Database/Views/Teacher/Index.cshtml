@@ -5,47 +5,30 @@
 }
 
 <h2>Teachers - Index</h2>
-<br />
 
-<p>
-    <a class="btn btn-sm btn-success" asp-controller="Teacher" asp-action="Create" method="get">Create New</a>
-</p>
+<br />
+<p><a class="btn btn-sm btn-success" asp-controller="Teacher" asp-action="Create" method="get">Create New</a></p>
 
 <hr />
 
-<table>
+<div class="row">
+    <div class="col-3">@Html.DisplayNameFor(model => model.FullName)</div>
+    <div class="col-6">@Html.DisplayNameFor(model => model.Email)</div>
+    <div class="col-3"></div>
+</div>
 
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+<br />
+@foreach (var item in Model)
+{
+    <div id="row" class="row">
+        <div class="col-3">@item.FullName</div>
+        <div class="col-6">@item.Email</div>
+        <div class="col-3">
+            <a asp-controller="Teacher" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-success">Edit</a>
+            <a asp-controller="Teacher" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-success">Details</a>
+            <a asp-controller="Teacher" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-success">Delete</a>
+        </div>
+    </div>
+}
 
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                <a asp-controller="Teacher" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-success">Edit</a>
-                <a asp-controller="Teacher" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-success">Details</a>
-                <a asp-controller="Teacher" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-success">Delete</a>
-
-            </td>
-        </tr>
-        }
-    </tbody>
-
-</table>
 <hr />

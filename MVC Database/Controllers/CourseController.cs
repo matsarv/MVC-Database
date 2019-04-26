@@ -37,7 +37,6 @@ namespace MVC_Database.Controllers
                 return NotFound();
             }
 
-            //List<StudentCourse> course = _courseService.SelectCourse((int)id);
             Course course = _courseService.SelectCourse((int)id);
 
             if (course == null)
@@ -287,11 +286,9 @@ namespace MVC_Database.Controllers
                 return RedirectToAction("Index");
             }
 
-            //return View(_courseService.AllCourses());
-            return RedirectToAction("Index");
+            return View(course);
+
         }
-
-
 
         //GET
         public IActionResult AddAssignmentsCourse(int? id)
@@ -316,15 +313,6 @@ namespace MVC_Database.Controllers
                 return NotFound();
             }
 
-            //foreach (var item in assignments)
-            //{
-            //    if (item.CourseID != (int)id)
-            //    {
-            //        assignments.Remove(item);
-            //    }
-            //}
-
-
             CourseAssigmentsViewModel vm = new CourseAssigmentsViewModel();
 
             vm.course = course;
@@ -341,15 +329,7 @@ namespace MVC_Database.Controllers
             return RedirectToAction("AddAssignmentsCourse", "Course", new { id });
 
         }
-        //[HttpPost, ActionName("DeleteAssignmentCourse")]
-        //[ValidateAntiForgeryToken]
-        //public IActionResult DeleteAssignmentCourseSave(int? assignmnetid, int courseid, int? id)
-        //{
-        //    //_courseService.DeleteAssignmentCourse((int)assignmnetid, (int)courseid);
 
-        //    return RedirectToAction("Select", "Course", new { id });
-        //}
     }
-
 
 }

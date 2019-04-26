@@ -22,16 +22,14 @@ namespace MVC_Database.Models
         public int CourseID { get; set; }
 
         [Required]
-        [Display(Name = "Assignment Number")]
+        [Display(Name = "Assignment Nr")]
         public int AssignmentNumber { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 1)]
         [Display(Name = "Title")]
         public string Title { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 1)]
         [Display(Name = "Description")]
         public string Description { get; set; }
 
@@ -42,11 +40,6 @@ namespace MVC_Database.Models
         //[DisplayFormat(NullDisplayText = "No grade")]
         //public string Grade { get; set; }
         //public Grade? Grade{ get; set; }
-
-        //public virtual Course Course { get; set; }
-
-        
-        
 
     }
 }

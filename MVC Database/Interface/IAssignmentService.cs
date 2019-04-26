@@ -22,7 +22,5 @@ namespace MVC_Database.Interface
 
         // DELETE
         bool DeleteAssignment(int id);
-
-
     }
 }

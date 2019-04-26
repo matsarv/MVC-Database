@@ -5,60 +5,36 @@
 }
 
 <h2>Courses - Index</h2>
+
 <br />
-<p>
-    <a asp-controller="Course" asp-action="Create" method="get" class="btn btn-sm btn-success">Create New</a>
-</p>
+<p><a asp-controller="Course" asp-action="Create" method="get" class="btn btn-sm btn-success">Create New</a></p>
 
 <hr />
-<table>
 
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CourseNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Credits)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+<div class="row">
+    <div class="col-1">@Html.DisplayNameFor(model => model.CourseNumber)</div>
+    <div class="col-3">@Html.DisplayNameFor(model => model.Title)</div>
+    <div class="col-3">@Html.DisplayNameFor(model => model.Description)</div>
+    <div class="col-1">@Html.DisplayNameFor(model => model.Credits)</div>
+    <div class="col-4"></div>
+</div>
 
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CourseNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Credits)
-            </td>
-
-            <td>
-                <a asp-controller="Course" asp-action="Select" asp-route-id="@item.ID" class="btn btn-sm btn-success">Select</a>
-                <a asp-controller="Course" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-success">Edit</a>
-                <a asp-controller="Course" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-success">Details</a>
-                <a asp-controller="Course" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-success">Delete</a>
-            </td>
-        </tr>
-        }
-    </tbody>
-
-</table>
+<br />
+@foreach (var item in Model)
+{
+    <div id="row" class="row">
+        <div class="col-1">@item.CourseNumber</div>
+        <div class="col-3">@item.Title</div>
+        <div class="col-3">@item.Description</div>
+        <div class="col-1">@item.Credits</div>
+        <div class="col-4">
+            <a asp-controller="Course" asp-action="Select" asp-route-id="@item.ID" class="btn btn-sm btn-success">Select</a>
+            <a asp-controller="Course" asp-action="Edit" asp-route-id="@item.ID" class="btn btn-sm btn-success">Edit</a>
+            <a asp-controller="Course" asp-action="Details" asp-route-id="@item.ID" class="btn btn-sm btn-success">Details</a>
+            <a asp-controller="Course" asp-action="Delete" asp-route-id="@item.ID" class="btn btn-sm btn-success">Delete</a>
+        </div>
+    </div>
+}
 
 <hr />
 

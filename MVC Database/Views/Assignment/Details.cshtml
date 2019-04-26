@@ -9,23 +9,25 @@
 <br />
 <hr />
 
-<table>
-    <tr><th><label asp-for="@Model.CourseID"></label></th></tr>
-    <tr><td>@Model.CourseID</td></tr>
-    <tr><th><label asp-for="@Model.AssignmentNumber"></label></th></tr>
-    <tr><td>@Model.AssignmentNumber</td></tr>
-    <tr><th><label asp-for="@Model.Title"></label></th></tr>
-    <tr><td>@Model.Title</td></tr>
-    <tr><th><label asp-for="@Model.Description"></label></th></tr>
-    <tr><td>@Model.Description</td></tr>
-    <tr><th><label asp-for="@Model.Credits"></label></th></tr>
-    <tr><td>@Model.Credits</td></tr>
-</table>
+<div class="row">
+
+    <div class="col-2"><label asp-for="@Model.AssignmentNumber"></label></div>
+    <div class="col-4"><label asp-for="@Model.Title"></label></div>
+    <div class="col-3"><label asp-for="@Model.Description"></label></div>
+    <div class="col-3"><label asp-for="@Model.Credits"></label></div>
+</div>
+
+<br />
+<div class="row">
+    <div class="col-2">@Model.AssignmentNumber</div>
+    <div class="col-4">@Model.Title</div>
+    <div class="col-3">@Model.Description</div>
+    <div class="col-3">@Model.Credits</div>
+</div>
 
 <hr />
 
-<td>
-    <a asp-controller="Assignment" asp-action="Edit" asp-route-id="@Model.CourseID" class="btn btn-sm btn-success">Edit</a>
-    <a asp-controller="Assignment" asp-action="Delete" asp-route-id="@Model.CourseID" class="btn btn-sm btn-success">Delete</a> |
-    <a asp-action="Index">Back to List</a>
-</td>
+@*<a asp-controller="Assignment" asp-action="Edit" asp-route-id="@Model.CourseID" class="btn btn-sm btn-success">Edit</a>*@
+@*<a asp-controller="Assignment" asp-action="Delete" asp-route-id="@Model.CourseID" class="btn btn-sm btn-success">Delete</a>*@ 
+@*<a asp-action="Index">Back to Index</a>*@
+<a asp-controller="Course" asp-action="Select" asp-route-id="@ViewBag.courseid">Back to Select</a>

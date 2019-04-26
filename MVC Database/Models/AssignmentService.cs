@@ -24,6 +24,7 @@ namespace MVC_Database.Models
 
             return assignment;
         }
+ 
         // READ
         // all
         public List<Assignment> AllAssignments()
@@ -35,6 +36,7 @@ namespace MVC_Database.Models
         {
             return _schoolDBContext.Assignments.SingleOrDefault(Assignment => Assignment.ID == id);
         }
+
         // UPDATE
         public bool UpdateAssignment(Assignment assignment)
         {
@@ -55,6 +57,7 @@ namespace MVC_Database.Models
 
             return wasUpdated;
         }
+
         // DELETE
         public bool DeleteAssignment(int id)
         {

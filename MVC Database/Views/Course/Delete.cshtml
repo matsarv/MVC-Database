@@ -10,14 +10,26 @@
 
 <hr />
 
-<table>
-    <tr><th>Course</th></tr>
-    <tr><td>@Model.CourseNumber @Model.Title</td></tr>
-</table>
+<div class="row">
+    <div class="col-1"><label asp-for="@Model.CourseNumber"></label></div>
+    <div class="col-3"><label asp-for="@Model.Title"></label></div>
+    <div class="col-3"><label asp-for="@Model.Description"></label></div>
+    <div class="col-1"><label asp-for="@Model.Credits"></label></div>
+    <div class="col-4"></div>
+</div>
+
+<br />
+<div class="row">
+    <div class="col-1">@Model.CourseNumber</div>
+    <div class="col-3">@Model.Title</div>
+    <div class="col-3">@Model.Description</div>
+    <div class="col-1">@Model.Credits</div>
+    <div class="col-4"></div>
+</div>
 
 <hr />
 
 <form asp-action="Delete">
     <input type="submit" value="Delete" class="btn btn-sm btn-danger" /> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Back to Index</a>
 </form>

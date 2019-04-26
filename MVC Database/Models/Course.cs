@@ -13,26 +13,20 @@ namespace MVC_Database.Models
         public int ID { get; set; }
 
         [Required]
-        //[StringLength(50, MinimumLength = 4)]
         [Display(Name = "Course")]
         public int CourseNumber { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 1)]
         [Display(Name = "Title")]
         public string Title { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 1)]
         [Display(Name = "Description")]
         public string Description { get; set; }
 
         [Required]
         [Display(Name = "Credits")]
         public int Credits { get; set; }
-
-        //public virtual ICollection<Assignment> Assignments { get; set; }
-        //public virtual ICollection<Teacher> Teachers { get; set; }
 
         public List<StudentCourse> StudentCourses { get; set; }
 

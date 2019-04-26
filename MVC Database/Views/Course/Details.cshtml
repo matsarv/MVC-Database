@@ -9,36 +9,25 @@
 <br />
 <hr />
 
-<h4>Course</h4>
-
-<table>
-    <tr><th><label asp-for="@Model.CourseNumber"></label>  Number</th></tr>
-    <tr><td>@Model.CourseNumber</td></tr>
-    <tr><th><label asp-for="@Model.Title"></label></th></tr>
-    <tr><td>@Model.Title</td></tr>
-    <tr><th><label asp-for="@Model.Description"></label></th></tr>
-    <tr><td>@Model.Description</td></tr>
-    <tr><th><label asp-for="@Model.Credits"></label></th></tr>
-    <tr><td>@Model.Credits</td></tr>
-</table>
-<br />
-
-@*<a asp-controller="Course" asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Edit</a>
-<a asp-controller="Course" asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Delete</a> |*@
-
-@*<hr />
-
-<h4>Assignment</h4>
+<div class="row">
+    <div class="col-1"><label asp-for="@Model.CourseNumber"></label></div>
+    <div class="col-3"><label asp-for="@Model.Title"></label></div>
+    <div class="col-3"><label asp-for="@Model.Description"></label></div>
+    <div class="col-1"><label asp-for="@Model.Credits"></label></div>
+    <div class="col-4"></div>
+</div>
 
 <br />
-<p>
-    <a asp-controller="Course" asp-action="CreateAssignment" method="get" class="btn btn-sm btn-success">Create New</a>
-</p>*@
+<div class="row">
+    <div class="col-1">@Model.CourseNumber</div>
+    <div class="col-3">@Model.Title</div>
+    <div class="col-3">@Model.Description</div>
+    <div class="col-1">@Model.Credits</div>
+    <div class="col-4"></div>
+</div>
 
 <hr />
 
-<p>
-    <a asp-controller="Course" asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Edit</a>
-    <a asp-controller="Course" asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Delete</a> |
-    <a asp-action="Index">Back to List</a>
-</p>
+<a asp-controller="Course" asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Edit</a>
+<a asp-controller="Course" asp-action="Delete" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Delete</a> |
+<a asp-action="Index">Back to Index</a>

@@ -7,19 +7,28 @@
 <h2>Assignment - Delete</h2>
 
 <br />
-
 <p>Are you sure you want to delete this?</p>
 
 <hr />
 
-<table>
-    <tr><th>Assignment</th></tr>
-    <tr><td>@Model.Title</td></tr>
-</table>
+<div class="row">
+    <div class="col-4"><label asp-for="@Model.Title"></label></div>
+    <div class="col-4"><label asp-for="@Model.Description"></label></div>
+    <div class="col-4"><label asp-for="@Model.Credits"></label></div>
+</div>
+
+<br />
+<div class="row">
+    <div class="col-4">@Model.Title</div>
+    <div class="col-4">@Model.Description</div>
+    <div class="col-4">@Model.Credits</div>
+</div>
 
 <hr />
 
 <form asp-action="Delete">
-    <input type="submit" value="Delete" class="btn btn-sm btn-danger" /> |
-    <a asp-action="Index">Back to List</a>
+    <input type="hidden" value="@ViewBag.courseid" name="courseid"/>
+    <input type="submit" value="Delete" class="btn btn-sm btn-danger" /> | 
+    <a asp-controller="Course" asp-action="Select" asp-route-id="@ViewBag.courseid">Back to Select</a>
+    @*<a asp-action="Index">Back to Index</a>*@
 </form>

@@ -110,8 +110,6 @@ namespace MVC_Database.Controllers
 
         // POST
         [HttpPost]
-        //[HttpPost, ActionName("Create")]
-        //public IActionResult Create(string firstName, string lastName, string email)
         public IActionResult Create([Bind("FirstName,LastName,Email")] Teacher teacher)
         {
             if (ModelState.IsValid)
@@ -120,8 +118,8 @@ namespace MVC_Database.Controllers
                 return RedirectToAction("Index");
 
             }
-            return RedirectToAction("Index");
-            //return View(_teacherService.AllTeachers());
+
+            return View(teacher);
 
         }
     }

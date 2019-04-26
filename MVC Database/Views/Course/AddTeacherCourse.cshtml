@@ -1,29 +1,37 @@
 ﻿@model CourseTeachersViewModel
+
 @{
     ViewData["Title"] = "Add Teacher To Course";
 }
 
 <h2>Add Teacher To Course</h2>
+
 <br />
 <h4>@Model.course.Title</h4>
+
 <br />
 <hr />
+
+<div class="row">
+    <div class="col-2">FirstName</div>
+    <div class="col-2">LastName</div>
+    <div class="col-2">Email</div>
+</div>
+
+<br />
 
 @foreach (var item in Model.teachers)
 {
-    <table>
-        <tbody>
-            <tr>
-                <td>
-                    @item.FullName
-                </td>
-                <td>
-                    <a asp-controller="Course" asp-action="AddTeacherCourseSave" asp-route-TeacherId="@item.ID" asp-route-id="@Model.course.ID" class="btn btn-sm btn-success">Add</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div id="row" class="row">
+        <div class="col-2">@item.FirstName</div>
+        <div class="col-2">@item.LastName</div>
+        <div class="col-6">@item.Email</div>
+        <div class="col-2">
+            <a asp-controller="Course" asp-action="AddTeacherCourseSave" asp-route-TeacherId="@item.ID" asp-route-id="@Model.course.ID" class="btn btn-sm btn-success">Add</a>
+        </div>
+    </div>
 }
 
 <hr />
-<a asp-controller="Course" asp-action="Select" asp-route-id="@Model.course.ID">Back to List</a>
+
+<a asp-controller="Course" asp-action="Select" asp-route-id="@Model.course.ID">Back to Select</a>

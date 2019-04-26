@@ -9,7 +9,6 @@ namespace MVC_Database.Interface
 
     public interface IStudentService
     {
-
         // CREATE
         Student CreateStudent(Student student);
 
@@ -24,6 +23,5 @@ namespace MVC_Database.Interface
 
         // DELETE
         bool DeleteStudent(int id);
-
     }
 }

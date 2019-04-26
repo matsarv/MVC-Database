@@ -8,7 +8,6 @@ namespace MVC_Database.Interface
 {
     public interface ICourseService
     {
-
         // CREATE
         Course CreateCourse(Course course);
 
@@ -21,9 +20,6 @@ namespace MVC_Database.Interface
         Course SelectCourse(int id);
         //one course, all teacher
         Course SelectCourseTeacher(int id);
-        ////one course, all students
-        //Course SelectCourseStudent(int id);
-        //Course SelectCourseStudent(Course course, int studentid);
 
         // UPDATE
         bool UpdateCourse(Course course);
@@ -34,9 +30,6 @@ namespace MVC_Database.Interface
         bool DeleteCourse(int id);
         bool DeleteTeacherCourse(int id);
         bool DeleteStudentCourse(int studentid, int id);
-
-        bool DeleteAssignmentCourse(int assignmentid, int id);
-
-
+        //bool DeleteAssignmentCourse(int assignmentid, int id);
     }
 }

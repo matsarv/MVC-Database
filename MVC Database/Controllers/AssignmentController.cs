@@ -16,13 +16,15 @@ namespace MVC_Database.Controllers
         {
             _assignmentService = assignmentService;
         }
+
         // GET
         public IActionResult Index()
         {
             return View(_assignmentService.AllAssignments());
         }
+        
         // GET
-        public IActionResult Details(int? id)
+        public IActionResult Details(int? id, int courseid, string coursename)
         {
             if (id == null)
             {
@@ -35,12 +37,13 @@ namespace MVC_Database.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.coursename = coursename;
+            ViewBag.courseid = courseid;
             return View(assignment);
         }
 
         // GET
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(int? id, int courseid, string coursename)
         {
             if (id == null)
             {
@@ -53,22 +56,25 @@ namespace MVC_Database.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.coursename = coursename;
+            ViewBag.courseid = courseid;
             return View(assignment);
         }
 
         // POST: 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id, int courseid)
         {
             _assignmentService.DeleteAssignment(id);
 
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
+
+            return RedirectToAction("Select", "Course", new { id = courseid });
         }
 
         // GET
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int? id, int courseid, string coursename)
         {
             if (id == null)
             {
@@ -81,7 +87,8 @@ namespace MVC_Database.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.coursename = coursename;
+            ViewBag.courseid = courseid;
             return View(assignment);
         }
 
@@ -94,10 +101,12 @@ namespace MVC_Database.Controllers
             if (ModelState.IsValid)
             {
                 _assignmentService.UpdateAssignment(assignment);
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+                var id = assignment.CourseID;
+                return RedirectToAction("Select", "Course", new { id });
 
             }
-
+            ViewBag.courseid = assignment.CourseID;
             return View(assignment);
         }
 
@@ -116,16 +125,18 @@ namespace MVC_Database.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 _assignmentService.CreateAssignment(assignment);
+
                 //return RedirectToAction("Index");
-                return RedirectToAction("Index");
-                //return RedirectToAction("Select", "Course", new { id });
-
+                //return RedirectToAction("Select", "Course");
+                var id = assignment.CourseID;
+                return RedirectToAction("Select", "Course", new { id });
             }
-
-            //return View(_assignmentService.AllAssignments());
-            return RedirectToAction("Index");
-
+             
+            //ViewBag.coursename = assignment.;
+            ViewBag.courseid = assignment.CourseID;
+            return View(assignment);
         }
 
     }

@@ -8,7 +8,6 @@ namespace MVC_Database.Interface
 {
     public interface ITeacherService
     {
-
         // CRETAE
         Teacher CreateTeacher(Teacher teacher);
 
@@ -23,6 +22,5 @@ namespace MVC_Database.Interface
 
         // DELETE
         bool DeleteTeacher(int id);
-
     }
 }

@@ -21,7 +21,6 @@ namespace MVC_Database.Models
         // CREATE
         public Student CreateStudent(Student student)
         {
-            //Student student = new Student() { FirstName = firstName, LastName= lastName, Email= email };
 
             _schoolDBContext.Students.Add(student);
             _schoolDBContext.SaveChanges();
@@ -29,7 +28,7 @@ namespace MVC_Database.Models
             return student;
         }
 
-        //READ
+        // READ
         // all
         public List<Student> AllStudents()
         {
