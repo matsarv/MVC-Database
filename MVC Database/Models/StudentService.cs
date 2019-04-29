@@ -1,4 +1,5 @@
-﻿using MVC_Database.Database;
+﻿using Microsoft.EntityFrameworkCore;
+using MVC_Database.Database;
 using MVC_Database.Interface;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,20 @@ namespace MVC_Database.Models
         public Student FindStudent(int id)
         {
             return _schoolDBContext.Students.SingleOrDefault(Student => Student.ID == id);
+        }
+        // one student, all assignments
+        public Student SelectStudentAssignments(int id)
+        {
+            var result = _schoolDBContext.Students
+                        .Include(x => x.StudentCourses)
+                            .ThenInclude(x => x.Course)
+                            .ThenInclude(x => x.Assignment)
+                        .SingleOrDefault(x => x.ID == id);
+
+            return result;
+
+            //return _schoolDBContext.Students.SingleOrDefault(Student => Student.ID == id);
+
         }
 
         // UPDATE

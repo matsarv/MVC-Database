@@ -65,7 +65,6 @@
 
     <br />
     <p>
-        @*<a asp-controller="Course" asp-action="AddAssignmentsCourse" asp-route-id="@Model.ID" method="get" class="btn btn-sm btn-success">Manage Assignments</a>*@
         <a asp-controller="Assignment" asp-action="Create" asp-route-courseid="@Model.ID" asp-route-coursename="@Model.Title" method="get" class="btn btn-sm btn-success">Create New</a>
     </p>
 
