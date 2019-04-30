@@ -52,7 +52,7 @@ a {
 
 /*Body*/
 #body {
-    background-color: darkslategray;
+    /*background-color: darkslategray;*/
     padding-top: 20px;
     padding-bottom: 30px;
 }
@@ -81,3 +81,4 @@ hr {
 #row {
     padding: 5px;
 }
+

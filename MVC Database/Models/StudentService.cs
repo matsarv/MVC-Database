@@ -41,7 +41,7 @@ namespace MVC_Database.Models
             return _schoolDBContext.Students.SingleOrDefault(Student => Student.ID == id);
         }
         // one student, all assignments
-        public Student SelectStudentAssignments(int id)
+        public Student SelectCoursesStudentAssignments(int id)
         {
             var result = _schoolDBContext.Students
                         .Include(x => x.StudentCourses)

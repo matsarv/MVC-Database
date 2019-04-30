@@ -55,7 +55,7 @@ namespace MVC_Database.Controllers
                 return NotFound();
             }
 
-            Course course = _courseService.FindCourse((int)id);
+            Course course = _courseService.SelectCourse((int)id);
 
             if (course == null)
             {

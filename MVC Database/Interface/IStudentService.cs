@@ -18,7 +18,7 @@ namespace MVC_Database.Interface
         //one
         Student FindStudent(int id);
 
-        Student SelectStudentAssignments(int id);
+        Student SelectCoursesStudentAssignments(int id);
 
         // UPDATE
         bool UpdateStudent(Student student);

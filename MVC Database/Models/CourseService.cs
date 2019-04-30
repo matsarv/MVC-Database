@@ -202,13 +202,5 @@ namespace MVC_Database.Models
             return wasRemoved;
         }
 
-        //public bool DeleteAssignmentCourse(int assignmentid, int id)
-        //{
-        //    bool wasRemoved = false;
-
-
-
-        //    return wasRemoved;
-        //}
     }
 }

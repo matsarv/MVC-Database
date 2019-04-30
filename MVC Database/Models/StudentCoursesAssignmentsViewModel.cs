@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Database.Models
 {
-    public class StudentAssignmentsViewModel
+    public class StudentCoursesAssignmentsViewModel
     {
         public Student Student { get; set; }
         public List<Assignment> Assignments { get; set; }

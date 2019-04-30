@@ -33,7 +33,7 @@ namespace MVC_Database.Models
         [Display(Name = "Name")]
         public string FullName => LastName + " " + FirstName;
 
-        public IList<StudentCourse> StudentCourses { get; set; }
+        public List<StudentCourse> StudentCourses { get; set; }
 
 
     }

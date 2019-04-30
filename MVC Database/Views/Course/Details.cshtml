@@ -9,7 +9,7 @@
 <br />
 <hr />
 
-<div class="row">
+<div class="row badge-dark">
     <div class="col-1"><label asp-for="@Model.CourseNumber"></label></div>
     <div class="col-3"><label asp-for="@Model.Title"></label></div>
     <div class="col-3"><label asp-for="@Model.Description"></label></div>
@@ -25,6 +25,71 @@
     <div class="col-1">@Model.Credits</div>
     <div class="col-4"></div>
 </div>
+
+<br /><br />
+<hr />
+
+<h4>Assignments</h4>
+
+<div class="row badge-dark">
+    <div class="col-4"><label asp-for="Title"></label></div>
+    <div class="col-4"><label asp-for="@Model.Description"></label></div>
+    <div class="col-4"></div>
+</div>
+
+<br />
+@if (@Model.Assignment != null)
+{
+    foreach (var item in Model.Assignment)
+    {
+        <div class="row">
+            <div class="col-4">@item.Title</div>
+            <div class="col-4">@item.Description</div>
+            <div class="col-4"></div>
+        </div>
+        <br />
+    }
+}
+
+<hr />
+
+<h4>Teacher</h4>
+
+<div class="row badge-dark">
+    <div class="col-4"><label asp-for="@Model.Teacher.FullName"></label></div>
+    <div class="col-4"><label asp-for="@Model.Teacher.Email"></label></div>
+    <div class="col-4"></div>
+</div>
+
+<br />
+<div id="row" class="row">
+    <div class="col-4">@Model.Teacher.FullName</div>
+    <div class="col-4">@Model.Teacher.Email</div>
+    <div class="col-4"></div>
+</div>
+
+<br />
+<hr />
+
+<h4>Students</h4>
+
+<div class="row badge-dark">
+    <div class="col-4">Name</div>
+    <div class="col-4">Email</div>
+    <div class="col-4"></div>
+</div>
+
+<br />
+@foreach (var item in Model.StudentCourses)
+{
+    <div id="row" class="row">
+        <div class="col-4">@item.Student.FullName</div>
+        <div class="col-4">@item.Student.Email</div>
+        <div class="col-4"></div>
+    </div>
+}
+
+<br />
 
 <hr />
 <a asp-controller="Course" asp-action="Edit" asp-route-id="@Model.ID" class="btn btn-sm btn-success">Edit</a>

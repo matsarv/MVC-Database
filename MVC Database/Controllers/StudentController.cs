@@ -33,7 +33,7 @@ namespace MVC_Database.Controllers
                 return NotFound();
             }
 
-            Student student = _studentService.SelectStudentAssignments((int)id);
+            Student student = _studentService.SelectCoursesStudentAssignments((int)id);
 
             if (student == null)
             {
