@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Database.Interface
 {
-
+ 
     public interface IStudentService
     {
         // CREATE

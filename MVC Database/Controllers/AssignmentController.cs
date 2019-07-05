@@ -57,6 +57,7 @@ namespace MVC_Database.Controllers
             {
                 return NotFound();
             }
+
             ViewBag.coursename = coursename;
             ViewBag.courseid = courseid;
             return View(assignment);
@@ -68,8 +69,6 @@ namespace MVC_Database.Controllers
         public ActionResult DeleteConfirmed(int id, int courseid)
         {
             _assignmentService.DeleteAssignment(id);
-
-            //return RedirectToAction("Index");
 
             return RedirectToAction("Select", "Course", new { id = courseid });
         }
@@ -88,6 +87,7 @@ namespace MVC_Database.Controllers
             {
                 return NotFound();
             }
+
             ViewBag.coursename = coursename;
             ViewBag.courseid = courseid;
             return View(assignment);
@@ -105,6 +105,7 @@ namespace MVC_Database.Controllers
                 return RedirectToAction("Select", "Course", new { id = assignment.CourseID });
 
             }
+
             ViewBag.courseid = assignment.CourseID;
             return View(assignment);
         }
@@ -114,12 +115,12 @@ namespace MVC_Database.Controllers
         {
             ViewBag.coursename = coursename;
             ViewBag.courseid = courseid;
+
             return View();
         }
 
         // POST
         [HttpPost]
-        //[HttpPost, ActionName("Create")]
         public IActionResult Create([Bind("CourseID,AssignmentNumber,Title,Description,Credits")] Assignment assignment)
         {
             if (ModelState.IsValid)
@@ -132,6 +133,7 @@ namespace MVC_Database.Controllers
              
             //ViewBag.coursename = assignment.;
             ViewBag.courseid = assignment.CourseID;
+
             return View(assignment);
         }
 
